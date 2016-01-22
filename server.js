@@ -1,31 +1,33 @@
-// 'use strict';
-
+import fs from 'fs';
 import express from 'express';
+import Schema from './data/schema';
+import GraphQLHTTP from 'express-graphql'
 import { MongoClient } from 'mongodb';
+import { graphql } from 'graphql';
+import { introspectionQuery } from 'graphql/utilities'
 
-let PORT = process.env.PORT || 8080;
-let app = express();
+const PORT = process.env.PORT || 3000;
 
+const app = express();
 app.use(express.static('public'));
 
-let db;
 
-MongoClient.connect(process.env.MONGO_URL, (err, database) => {
-  if (err) throw err;
-  
-  db = database;
-  app.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}.`)
-  });
+(async () => {
+  let db = await MongoClient.connect(process.env.MONGO_URL)
+  let schema = Schema(db);
 
+  app.use('/graphql', GraphQLHTTP({
+    schema,
+    // graphiql: true
+  }));
 
-});
+  app.listen(PORT, () => console.log(`Listening on port ${PORT}.`));
 
-
-app.get('/data/characters', (req, res) => {
-  db.collection('characters').find({}).toArray((err, characters) => {
+  // generate schema.json
+  let json = await graphql(schema, introspectionQuery);
+  fs.writeFile('./data/schema.json', JSON.stringify(json, null, 2), err => {
     if (err) throw err;
-    console.log(characters);
-    res.json(characters);
-  });
-})
+    console.log('json schema created')
+  })
+
+})();
