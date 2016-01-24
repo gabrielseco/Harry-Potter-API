@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "setup": "npm i",
-    "start": "babel-node --presets es2015,stage-0,react server.js"
+    "start": "babel-node --presets es2015,stage-0,react server.js",
+    "testing": "nodemon server.js --ignore data/schema.json --exec babel-node --presets es2015,stage-0,react"
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +25,7 @@
     "express-graphql": "^0.4.5",
     "flux": "^2.1.1",
     "graphql": "^0.4.14",
+    "graphql-relay": "^0.3.6",
     "jquery": "^2.2.0",
     "kerberos": "0.0.18",
     "mongodb": "^2.1.4",

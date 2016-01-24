@@ -13,21 +13,24 @@ app.use(express.static('public'));
 
 
 (async () => {
-  let db = await MongoClient.connect(process.env.MONGO_URL)
-  let schema = Schema(db);
-
-  app.use('/graphql', GraphQLHTTP({
-    schema,
-    // graphiql: true
-  }));
-
-  app.listen(PORT, () => console.log(`Listening on port ${PORT}.`));
-
-  // generate schema.json
-  let json = await graphql(schema, introspectionQuery);
-  fs.writeFile('./data/schema.json', JSON.stringify(json, null, 2), err => {
-    if (err) throw err;
-    console.log('json schema created')
-  })
-
+  try {
+    let db = await MongoClient.connect(process.env.MONGO_URL)
+    let schema = Schema(db);
+  
+    app.use('/graphql', GraphQLHTTP({
+      schema,
+      graphiql: true
+    }));
+  
+    app.listen(PORT, () => console.log(`Listening on port ${PORT}.`));
+  
+    // generate schema.json
+    let json = await graphql(schema, introspectionQuery);
+    fs.writeFile('./data/schema.json', JSON.stringify(json, null, 2), err => {
+      if (err) throw err;
+      console.log('json schema created')
+    });
+  } catch(e) {
+    console.error(e);
+  }
 })();
