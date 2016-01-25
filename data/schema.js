@@ -49,10 +49,10 @@ let Schema = (db) => {
       middleName: { type: GraphQLString },
       dob: { type: GraphQLInt },
       gender: { type: GraphQLString },
-      magical: { type: GraphQLBoolean },
-      muggleBorn: { type: GraphQLBoolean },
-      DA: { type: GraphQLBoolean },
-      deathEater: { type: GraphQLBoolean }
+      // magical: { type: GraphQLBoolean },
+      // muggleBorn: { type: GraphQLBoolean },
+      // DA: { type: GraphQLBoolean },
+      // deathEater: { type: GraphQLBoolean }
     })
   })
 
@@ -69,10 +69,10 @@ let Schema = (db) => {
       middleName: { type: new GraphQLNonNull(GraphQLString) },
       dob: { type: new GraphQLNonNull(GraphQLInt) },
       gender: { type: new GraphQLNonNull(GraphQLString) },
-      magical: { type: new GraphQLNonNull(GraphQLBoolean) },
-      muggleBorn: { type: new GraphQLNonNull(GraphQLBoolean) },
-      DA: { type: new GraphQLNonNull(GraphQLBoolean) },
-      deathEater: { type: new GraphQLNonNull(GraphQLBoolean) }
+      // magical: { type: new GraphQLNonNull(GraphQLBoolean) },
+      // muggleBorn: { type: new GraphQLNonNull(GraphQLBoolean) },
+      // DA: { type: new GraphQLNonNull(GraphQLBoolean) },
+      // deathEater: { type: new GraphQLNonNull(GraphQLBoolean) }
     },
     outputFields: {
       characterEdge: {

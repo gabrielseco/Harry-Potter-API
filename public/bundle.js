@@ -42971,6 +42971,10 @@
 	
 	var _Character2 = _interopRequireDefault(_Character);
 	
+	var _CreateCharacterMutation = __webpack_require__(/*! ../mutations/CreateCharacterMutation */ 424);
+	
+	var _CreateCharacterMutation2 = _interopRequireDefault(_CreateCharacterMutation);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -42996,6 +43000,23 @@
 	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(Main)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.setLimit = function (e) {
 	      var newLimit = Number(e.target.value);
 	      _this.props.relay.setVariables({ limit: newLimit });
+	    }, _this.handleSubmit = function (e) {
+	      e.preventDefault();
+	      //mutation
+	      _reactRelay2.default.Store.commitUpdate( //takes an instance of a mutation class as an argument
+	      new _CreateCharacterMutation2.default({
+	        firstName: _this.refs.newFirstName.value,
+	        lastName: _this.refs.newLastName.value,
+	        middleName: _this.refs.newMiddleName.value,
+	        dob: _this.refs.newDob.value,
+	        gender: _this.refs.newGender.value,
+	        store: _this.props.store
+	      }));
+	      _this.refs.newFirstName = "";
+	      _this.refs.newLastName = "";
+	      _this.refs.newMiddleName = "";
+	      _this.refs.newDob = "";
+	      _this.refs.newGender = "";
 	    }, _temp), _possibleConstructorReturn(_this, _ret);
 	  }
 	
@@ -43015,17 +43036,32 @@
 	          'Characters'
 	        ),
 	        _react2.default.createElement(
+	          'form',
+	          { onSubmit: this.handleSubmit },
+	          _react2.default.createElement('input', { type: 'text', placeholder: 'firstName', ref: 'newFirstName' }),
+	          _react2.default.createElement('input', { type: 'text', placeholder: 'lastName', ref: 'newLastName' }),
+	          _react2.default.createElement('input', { type: 'text', placeholder: 'middleName', ref: 'newMiddleName' }),
+	          _react2.default.createElement('input', { type: 'text', placeholder: 'dob', ref: 'newDob' }),
+	          _react2.default.createElement('input', { type: 'text', placeholder: 'gender', ref: 'newGender' }),
+	          _react2.default.createElement(
+	            'button',
+	            { type: 'submit' },
+	            ' Add New Character '
+	          )
+	        ),
+	        _react2.default.createElement(
 	          'select',
-	          { onChange: this.setLimit },
+	          { onChange: this.setLimit,
+	            defaulValue: this.props.relay.variables.limit },
 	          _react2.default.createElement(
 	            'option',
-	            { value: '2' },
-	            '2'
+	            { value: '4' },
+	            '4'
 	          ),
 	          _react2.default.createElement(
 	            'option',
-	            { value: '3' },
-	            '3'
+	            { value: '10' },
+	            '10'
 	          )
 	        ),
 	        _react2.default.createElement(
@@ -43045,13 +43081,20 @@
 	
 	Main = _reactRelay2.default.createContainer(Main, {
 	  initialVariables: {
-	    limit: 3
+	    limit: 10
 	  },
 	  fragments: { //takes a fragment, name it('store') anything, must be a function that returns a graphql query
 	    store: function store() {
 	      return function (RQL_0) {
 	        return {
 	          children: [{
+	            fieldName: 'id',
+	            kind: 'Field',
+	            metadata: {
+	              isRequisite: true
+	            },
+	            type: 'ID'
+	          }, {
 	            calls: [{
 	              kind: 'Call',
 	              metadata: {},
@@ -43230,6 +43273,175 @@
 	});
 	
 	exports.default = Character;
+
+/***/ },
+/* 424 */
+/*!*************************************************!*\
+  !*** ./js/mutations/CreateCharacterMutation.js ***!
+  \*************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRelay = __webpack_require__(/*! react-relay */ 159);
+	
+	var _reactRelay2 = _interopRequireDefault(_reactRelay);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var CreateCharacterMutation = function (_Relay$Mutation) {
+	  _inherits(CreateCharacterMutation, _Relay$Mutation);
+	
+	  function CreateCharacterMutation() {
+	    _classCallCheck(this, CreateCharacterMutation);
+	
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(CreateCharacterMutation).apply(this, arguments));
+	  }
+	
+	  _createClass(CreateCharacterMutation, [{
+	    key: 'getMutation',
+	    value: function getMutation() {
+	      // return the graphQL operation for the mutation we need to envoke
+	      return function () {
+	        return {
+	          calls: [{
+	            kind: 'Call',
+	            metadata: {},
+	            name: 'createCharacter',
+	            value: {
+	              kind: 'CallVariable',
+	              callVariableName: 'input'
+	            }
+	          }],
+	          children: [{
+	            fieldName: 'clientMutationId',
+	            kind: 'Field',
+	            metadata: {
+	              isGenerated: true,
+	              isRequisite: true
+	            },
+	            type: 'String'
+	          }],
+	          kind: 'Mutation',
+	          metadata: {
+	            inputType: 'CreateCharacterInput!'
+	          },
+	          name: 'CreateCharacterMutation',
+	          responseType: 'CreateCharacterPayload'
+	        };
+	      }();
+	    }
+	  }, {
+	    key: 'getVariables',
+	    value: function getVariables() {
+	      //prepare variables needed for the mutation
+	      return {
+	        firstName: this.props.firstName,
+	        lastName: this.props.lastName,
+	        middleName: this.props.middleName,
+	        dob: this.props.dob,
+	        gender: this.props.gender
+	      };
+	    }
+	  }, {
+	    key: 'getFatQuery',
+	    value: function getFatQuery() {
+	      // plan for future - everything that could be affected
+	      return function () {
+	        return {
+	          children: [{
+	            children: [{
+	              fieldName: 'cursor',
+	              kind: 'Field',
+	              metadata: {
+	                isGenerated: true,
+	                isRequisite: true
+	              },
+	              type: 'String'
+	            }, {
+	              children: [{
+	                fieldName: 'id',
+	                kind: 'Field',
+	                metadata: {
+	                  isGenerated: true,
+	                  isRequisite: true
+	                },
+	                type: 'ID'
+	              }],
+	              fieldName: 'node',
+	              kind: 'Field',
+	              metadata: {
+	                isGenerated: true,
+	                isRequisite: true
+	              },
+	              type: 'Character'
+	            }],
+	            fieldName: 'characterEdge',
+	            kind: 'Field',
+	            metadata: {},
+	            type: 'CharacterEdge'
+	          }, {
+	            children: [{
+	              fieldName: 'characterConnection',
+	              kind: 'Field',
+	              metadata: {
+	                isConnection: true
+	              },
+	              type: 'CharacterConnection'
+	            }, {
+	              fieldName: 'id',
+	              kind: 'Field',
+	              metadata: {
+	                isGenerated: true,
+	                isRequisite: true
+	              },
+	              type: 'ID'
+	            }],
+	            fieldName: 'store',
+	            kind: 'Field',
+	            metadata: {},
+	            type: 'Store'
+	          }],
+	          kind: 'Fragment',
+	          metadata: {},
+	          name: 'CreateCharacterMutation',
+	          type: 'CreateCharacterPayload'
+	        };
+	      }();
+	    }
+	  }, {
+	    key: 'getConfigs',
+	    value: function getConfigs() {
+	      //instructions given Relay on how to handle the response from server (CRUD)
+	      return [{
+	        type: 'RANGE_ADD',
+	        parentName: 'store',
+	        parentID: this.props.store.id,
+	        connectionName: 'characterConnection',
+	        edgeName: 'characterEdge',
+	        rangeBehaviors: { // a map between a certain state for our connection and the operation we want relay to do for that state
+	          '': 'append'
+	        }
+	      }];
+	    }
+	  }]);
+	
+	  return CreateCharacterMutation;
+	}(_reactRelay2.default.Mutation);
+	
+	exports.default = CreateCharacterMutation;
 
 /***/ }
 /******/ ]);

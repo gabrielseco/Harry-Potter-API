@@ -27,10 +27,10 @@ app.use(express.static('public'));
     // generate schema.json
     let json = await graphql(schema, introspectionQuery);
     fs.writeFile('./data/schema.json', JSON.stringify(json, null, 2), err => {
-      if (err) throw err;
+      if (err) throw err.stack;
       console.log('json schema created')
     });
   } catch(e) {
-    console.error(e);
+    console.error(e.stack);
   }
 })();
