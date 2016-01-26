@@ -43228,8 +43228,8 @@
 	        'li',
 	        null,
 	        character.firstName,
-	        ' was born on ',
-	        character.dob
+	        ' is awesome cause they rock at ',
+	        character.specialSkills
 	      );
 	    }
 	  }]);
@@ -43248,10 +43248,10 @@
 	            metadata: {},
 	            type: 'String'
 	          }, {
-	            fieldName: 'dob',
+	            fieldName: 'specialSkills',
 	            kind: 'Field',
 	            metadata: {},
-	            type: 'Int'
+	            type: 'String'
 	          }, {
 	            fieldName: 'id',
 	            kind: 'Field',

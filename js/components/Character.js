@@ -5,7 +5,7 @@ class Character extends React.Component {
   render() {
     let {character} = this.props;
     return (
-      <li>{character.firstName} was born on {character.dob}</li>
+      <li>{character.firstName} is awesome cause they rock at {character.specialSkills}</li>
     );
   }
 }
@@ -16,7 +16,7 @@ Character = Relay.createContainer(Character, {
     character: () => Relay.QL`
       fragment on Character {
         firstName,
-        dob,
+        specialSkills
       }
     `
   }

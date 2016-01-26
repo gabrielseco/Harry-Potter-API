@@ -38,28 +38,18 @@ character.characterType = new GraphQLObjectType({
     characterId: {
       type: GraphQLInt,
       description: 'The human readable ID of this character.',
-      resolve: (obj) => {
-        if (obj.characterId) {
-          return obj.characterId;
-        } else {
-          return db.collection('characters').count() + 1;
-        }
-      }
     },
     firstName: { 
       type: new GraphQLNonNull(GraphQLString),
       description: 'The first name of this character',
-      // resolve: (obj) => obj.firstName
     },
     lastName: { 
       type: new GraphQLNonNull(GraphQLString),
       description: 'The last name of this character',
-      // resolve: (obj) => obj.lastName
     },
     middleName: { 
       type: new GraphQLNonNull(GraphQLString),
       description: 'The middle name of this character, if they have one.',
-      // resolve: (obj) => obj.middleName
     },
     name: { 
       type: new GraphQLNonNull(GraphQLString),
@@ -75,22 +65,18 @@ character.characterType = new GraphQLObjectType({
     dob: { 
       type: new GraphQLNonNull(GraphQLInt),
       description: 'The date of birth of this character, in UNIX (use moment.js to parse).  "0" if not known.',
-      // resolve: (obj) => obj.dob
     },
     dod: { 
       type: new GraphQLNonNull(GraphQLInt),
       description: 'The date of death of this character, in UNIX (use moment.js to parse).  "0" if not known, "-1" if character is still alive.',
-      // resolve: (obj) => obj.dob
     },
     gender: { 
       type: new GraphQLNonNull(GraphQLString),
       description: 'The gender of this charcter, either "male", "female", "unknown" or "n/a" if this character does not have a gender.',
-      // resolve: (obj) => (obj.gender)
     },
     house: { 
       type: new GraphQLNonNull(GraphQLString),
       description: 'The house of this charcter was in as a student at Hogwarts.  "n/a" if the character never attended Hogwarts as a student.',
-      // resolve: (obj) => (obj.house)
     },
     occupation: {
       type: new GraphQLNonNull(GraphQLString),
@@ -100,10 +86,6 @@ character.characterType = new GraphQLObjectType({
     magical: {
       type: new GraphQLNonNull(GraphQLBoolean),
       description: '"True" if this character is magical',
-      // args: {
-        // true: { type: GraphQLBoolean }
-      // },
-      // resolve: (obj) => (obj.magical)
     },
     wand: {
       type: new GraphQLNonNull(GraphQLString),
@@ -116,22 +98,18 @@ character.characterType = new GraphQLObjectType({
     muggleBorn: {
       type: GraphQLBoolean,
       description: '"True" if this character is born to non-magical parents.  "False" if unknown.',
-      // resolve: (obj) => (obj.muggleBorn)
     },
     DA: {
       type: GraphQLBoolean,
       description: '"True" if this character was a member of "Dumbledore\'s Army". "False" if unkown.',
-      // resolve: (obj) => (obj.DA)
     },
     deathEater: {
       type: GraphQLBoolean,
       description: '"True" if this character was a known supported of Voldemort."False" if unknown.',
-      // resolve: (obj) => (obj.deathEater)
     },
     specialSkills: {
       type: new GraphQLNonNull(GraphQLString),
       description: 'Any special skills (such as potion making or flying) this character has.',
-      // resolve: (obj) => (obj.deathEater)
     },
   })
 })
@@ -148,7 +126,17 @@ character.createCharacterMutation = mutationWithClientMutationId({
     lastName: { type: new GraphQLNonNull(GraphQLString) },
     middleName: { type: new GraphQLNonNull(GraphQLString) },
     dob: { type: new GraphQLNonNull(GraphQLInt) },
+    dod: { type: new GraphQLNonNull(GraphQLInt) },
     gender: { type: new GraphQLNonNull(GraphQLString) },
+    house: { type: new GraphQLNonNull(GraphQLString) },
+    occupation: { type: new GraphQLNonNull(GraphQLString) },
+    magical: { type: new GraphQLNonNull(GraphQLBoolean) },
+    wand: { type: new GraphQLNonNull(GraphQLString) },
+    patronus: { type: new GraphQLNonNull(GraphQLString) },
+    muggleBorn: { type: new GraphQLNonNull(GraphQLBoolean) },
+    DA: { type: new GraphQLNonNull(GraphQLBoolean) },
+    deathEater: { type: new GraphQLNonNull(GraphQLBoolean) },
+    specialSkills: { type: new GraphQLNonNull(GraphQLString) },
   },
   outputFields: {
     characterEdge: {
@@ -160,9 +148,20 @@ character.createCharacterMutation = mutationWithClientMutationId({
       resolve: () => store 
     }
   },
-  mutateAndGetPayload: ({firstName, lastName, middleName, dob, gender, magical, muggleBorn, DA, deathEater}) => { //logic for mutation goes here
-    return db.collection('characters').insertOne({firstName, lastName, middleName, dob, gender, magical, muggleBorn, DA, deathEater});
+  mutateAndGetPayload: ({firstName, lastName, middleName, dob, dod, gender, house, occupation, magical, wand, patronus, muggleBorn, DA, deathEater, specialSkills}) => { //logic for mutation goes here
+    (async () => {
+      try {
+        let characterId = await db.collection('characters').count();
+        characterId++;
+        return db.collection('characters').insertOne({firstName, lastName, middleName, dob, dod, gender, house, occupation, magical, wand, patronus, muggleBorn, DA, deathEater, specialSkills, characterId});
+      } catch(e) {
+        console.error(e.stack);
+      }
+    })();
   }
 });
 
 export default character;
+
+
+
