@@ -5,6 +5,10 @@ import GraphQLHTTP from 'express-graphql'
 import { MongoClient } from 'mongodb';
 import { graphql } from 'graphql';
 import { introspectionQuery } from 'graphql/utilities'
+// import db from './db';
+
+// console.log('MongoClient in server', MongoClient);
+
 
 const PORT = process.env.PORT || 3000;
 
@@ -15,6 +19,7 @@ app.use(express.static('public'));
 (async () => {
   try {
     let db = await MongoClient.connect(process.env.MONGO_URL)
+    console.log('db from server', db)
     let schema = Schema(db);
   
     app.use('/graphql', GraphQLHTTP({

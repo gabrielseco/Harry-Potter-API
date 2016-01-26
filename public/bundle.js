@@ -73,20 +73,20 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var HomeRoute = function (_Relay$Route) {
-	  _inherits(HomeRoute, _Relay$Route);
+	var AppRoute = function (_Relay$Route) {
+	  _inherits(AppRoute, _Relay$Route);
 	
-	  function HomeRoute() {
-	    _classCallCheck(this, HomeRoute);
+	  function AppRoute() {
+	    _classCallCheck(this, AppRoute);
 	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(HomeRoute).apply(this, arguments));
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(AppRoute).apply(this, arguments));
 	  }
 	
-	  return HomeRoute;
+	  return AppRoute;
 	}(_reactRelay2.default.Route);
 	
-	HomeRoute.routeName = 'Home';
-	HomeRoute.queries = {
+	AppRoute.routeName = 'App';
+	AppRoute.queries = {
 	  store: function store(Component) {
 	    return function (RQL_0) {
 	      return {
@@ -103,7 +103,7 @@
 	
 	_reactDom2.default.render(_react2.default.createElement(_reactRelay2.default.RootContainer, {
 	  Component: _Main2.default,
-	  route: new HomeRoute()
+	  route: new AppRoute()
 	}), document.getElementById('react'));
 
 /***/ },
@@ -43024,7 +43024,6 @@
 	    key: 'render',
 	    value: function render() {
 	      var content = this.props.store.characterConnection.edges.map(function (edge) {
-	        // TO DO: Make the li a <Link />
 	        return _react2.default.createElement(_Character2.default, { key: edge.node.id, character: edge.node });
 	      });
 	      return _react2.default.createElement(

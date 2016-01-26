@@ -30,7 +30,6 @@ class Main extends React.Component {
   };
   render() {
     let content = this.props.store.characterConnection.edges.map(edge => {
-      // TO DO: Make the li a <Link />
       return <Character key={edge.node.id} character={edge.node}/>
     })
     return (

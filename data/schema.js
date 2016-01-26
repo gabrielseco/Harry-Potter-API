@@ -15,84 +15,58 @@ import {
   connectionArgs,
   connectionFromPromisedArray,
   mutationWithClientMutationId,
-  globalIdField
+  globalIdField,
+  fromGlobalId,
+  nodeDefinitions,
 } from 'graphql-relay';
 
+import character from './types/character';
+import storeType from './types/store';
+
 let Schema = (db) => {
-  let store = {}
+  class Store {};
+  let store = new Store();
+  // console.log('db from schema',db);
 
-  let storeType = new GraphQLObjectType({
-    name: 'Store',
-    fields: () => ({
-      id: globalIdField('Store'),
-      characterConnection: {
-        type: characterConnection.connectionType,
-        args: connectionArgs,
-        resolve: (_, args) => connectionFromPromisedArray(
-          db.collection('characters').find({}).limit(args.first).toArray(),
-          args
-        )
+  let nodeDefs = nodeDefinitions(
+    (globalId) => {
+      let { type } = fromGlobalId(globalId);
+      if (type === 'Store') {
+        return store
       }
-    })
-  });
-
-  let characterType = new GraphQLObjectType({
-    name: 'Character',
-    fields: () => ({
-      // _id: { type: GraphQLString },
-      id: {
-        type: new GraphQLNonNull(GraphQLID),
-        resolve: (obj) => obj._id
-      },
-      firstName: { type: GraphQLString },
-      lastName: { type: GraphQLString },
-      middleName: { type: GraphQLString },
-      dob: { type: GraphQLInt },
-      gender: { type: GraphQLString },
-      // magical: { type: GraphQLBoolean },
-      // muggleBorn: { type: GraphQLBoolean },
-      // DA: { type: GraphQLBoolean },
-      // deathEater: { type: GraphQLBoolean }
-    })
-  })
-
-  let characterConnection = connectionDefinitions({
-    name: 'Character',
-    nodeType: characterType
-  });
-
-  let createCharacterMutation = mutationWithClientMutationId({
-    name: 'CreateCharacter',
-    inputFields: {
-      firstName: { type: new GraphQLNonNull(GraphQLString) },
-      lastName: { type: new GraphQLNonNull(GraphQLString) },
-      middleName: { type: new GraphQLNonNull(GraphQLString) },
-      dob: { type: new GraphQLNonNull(GraphQLInt) },
-      gender: { type: new GraphQLNonNull(GraphQLString) },
-      // magical: { type: new GraphQLNonNull(GraphQLBoolean) },
-      // muggleBorn: { type: new GraphQLNonNull(GraphQLBoolean) },
-      // DA: { type: new GraphQLNonNull(GraphQLBoolean) },
-      // deathEater: { type: new GraphQLNonNull(GraphQLBoolean) }
+      return null;
     },
-    outputFields: {
-      characterEdge: {
-        type: characterConnection.edgeType,
-        resolve: (obj) => ({ node: obj.ops[0], cursor: obj.insertedId })
-      },
-      store: {
-        type: storeType,
-        resolve: () => store 
-      }
-    },
-    mutateAndGetPayload: ({firstName, lastName, middleName, dob, gender, magical, muggleBorn, DA, deathEater}) => { //logic for mutation goes here
-      return db.collection('characters').insertOne({firstName, lastName, middleName, dob, gender, magical, muggleBorn, DA, deathEater});
+    (obj) => {
+      if (obj instanceof Store) return storeType;
+      return null;
     }
-  });
+  );
+
+
+  // let storeType = new GraphQLObjectType({
+  //   name: 'Store',
+  //   fields: () => ({
+  //     id: globalIdField('Store'),
+  //     characterConnection: {
+  //       type: character.characterConnection.connectionType,
+  //       args: connectionArgs,
+  //       resolve: (_, args) => connectionFromPromisedArray(
+  //         db.collection('characters').find({}).limit(args.first).toArray(),
+  //         args
+  //       )
+  //     }
+  //   })
+  // });
+
+  // let characterType = character.characterType;
+  // let characterConnection = character.characterConnection;
+  // let createCharacterMutation = character.createCharacterMutation;
 
   let schema = new GraphQLSchema({
     query: new GraphQLObjectType({
       name: 'Query',
       fields: () => ({
+        node: nodeDefs.nodeField,
         store: {
           type: storeType,
           resolve: () => store
@@ -102,7 +76,7 @@ let Schema = (db) => {
     mutation: new GraphQLObjectType({
       name: 'Mutation',
       fields: () => ({
-        createCharacter: createCharacterMutation
+        createCharacter: character.createCharacterMutation
       })
     })
   });

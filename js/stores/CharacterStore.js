@@ -1,4 +1,4 @@
-import AppDispatcher from '../AppDispatcher';
+  import AppDispatcher from '../AppDispatcher';
 import { ActionTypes } from '../Constants';
 import { EventEmitter } from 'events';
 
@@ -13,7 +13,7 @@ class CharacterStore extends EventEmitter {
         case ActionTypes.RECEIVE_CHARACTERS:
           console.log('3. Store has received characters')
           _characters = action.characters;
-          this.emit('change');
+          // this.emit('change');
           break;
         default:
           // do nothing

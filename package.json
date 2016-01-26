@@ -20,6 +20,7 @@
     "babel-preset-stage-0": "^6.3.13",
     "babel-register": "^6.4.3",
     "babel-relay-plugin": "^0.6.3",
+    "es6-promisify": "^3.0.0",
     "events": "^1.1.0",
     "express": "^4.13.3",
     "express-graphql": "^0.4.5",

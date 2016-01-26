@@ -4,8 +4,8 @@ import Relay from 'react-relay';
 
 import Main from './components/Main';
 
-class HomeRoute extends Relay.Route {
-  static routeName = 'Home';
+class AppRoute extends Relay.Route {
+  static routeName = 'App';
   static queries = {
     store: (Component) => Relay.QL`
       query MainQuery {
@@ -18,7 +18,7 @@ class HomeRoute extends Relay.Route {
 ReactDOM.render(
   <Relay.RootContainer
     Component={Main}
-    route={new HomeRoute() }
+    route={new AppRoute() }
   />,
   document.getElementById('react')
 );
