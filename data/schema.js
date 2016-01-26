@@ -1,20 +1,20 @@
 import {
   GraphQLSchema,
   GraphQLObjectType,
-  GraphQLInt,
-  GraphQLString,
-  GraphQLList,
-  GraphQLBoolean,
-  GraphQLNonNull,
-  GraphQLID
+  // GraphQLInt,
+  // GraphQLString,
+  // GraphQLList,
+  // GraphQLBoolean,
+  // GraphQLNonNull,
+  // GraphQLID
 } from 'graphql';
 
 import {
-  connectionDefinitions, 
-  connectionArgs,
-  connectionFromPromisedArray,
-  mutationWithClientMutationId,
-  globalIdField,
+  // connectionDefinitions, 
+  // connectionArgs,
+  // connectionFromPromisedArray,
+  // mutationWithClientMutationId,
+  // globalIdField,
   fromGlobalId,
   nodeDefinitions,
 } from 'graphql-relay';

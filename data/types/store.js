@@ -1,19 +1,19 @@
 import {
-  GraphQLSchema,
+  // GraphQLSchema,
   GraphQLObjectType,
-  GraphQLInt,
-  GraphQLString,
-  GraphQLList,
-  GraphQLBoolean,
-  GraphQLNonNull,
-  GraphQLID
+  // GraphQLInt,
+  // GraphQLString,
+  // GraphQLList,
+  // GraphQLBoolean,
+  // GraphQLNonNull,
+  // GraphQLID
 } from 'graphql';
 
 import {
-  connectionDefinitions, 
+  // connectionDefinitions, 
   connectionArgs,
   connectionFromPromisedArray,
-  mutationWithClientMutationId,
+  // mutationWithClientMutationId,
   globalIdField,
   // fromGlobalId,
   // nodeDefinitions,
