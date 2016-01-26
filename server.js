@@ -19,7 +19,7 @@ app.use(express.static('public'));
 (async () => {
   try {
     let db = await MongoClient.connect(process.env.MONGO_URL)
-    console.log('db from server', db)
+    // console.log('db from server', db)
     let schema = Schema(db);
   
     app.use('/graphql', GraphQLHTTP({

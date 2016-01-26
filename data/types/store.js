@@ -14,19 +14,27 @@ import {
   connectionArgs,
   connectionFromPromisedArray,
   mutationWithClientMutationId,
-  globalIdField
+  globalIdField,
+  // fromGlobalId,
+  // nodeDefinitions,
 } from 'graphql-relay';
 
 import character from './character';
-
 import { db } from '../../db';
 
-// console.log(getCollection('characters'))
-
-// console.log((await getCollection('characters')).find({}));
-
-console.log('db from store', db);
-
+// let nodeDefs = nodeDefinitions(
+//   (globalId) => {
+//     let { type } = fromGlobalId(globalId);
+//     if (type === 'Store') {
+//       return store
+//     }
+//     return null;
+//   },
+//   (obj) => {
+//     if (obj instanceof Store) return storeType;
+//     return null;
+//   }
+// );
 
 let storeType = new GraphQLObjectType({
   name: 'Store',
@@ -36,14 +44,12 @@ let storeType = new GraphQLObjectType({
       type: character.characterConnection.connectionType,
       args: connectionArgs,
       resolve: (_, args) => connectionFromPromisedArray(
-        data.collection('characters').find({}).limit(args.first).toArray(),
+        db.collection('characters').find({}).limit(args.first).toArray(),
         args
       )
     }
   }),
   // interfaces: [nodeDefs.nodeInterface]
 });
-
-// console.log(data)
 
 export default storeType;

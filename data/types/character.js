@@ -1,8 +1,3 @@
-import { MongoClient } from '../../node_modules/mongodb/lib/mongo_client';
-
-// console.log('MongoClient here', MongoClient);
-
-// /../../character.js
 import {
 	GraphQLSchema,
 	GraphQLObjectType,
@@ -15,8 +10,7 @@ import {
 } from 'graphql';
 
 import {
-  connectionDefinitions, // a helper function that takes a regular graphql node
-  // and gives back an object representing the new node connection structure
+  connectionDefinitions,
   connectionArgs,
   connectionFromPromisedArray,
   mutationWithClientMutationId,
@@ -24,18 +18,7 @@ import {
 } from 'graphql-relay';
 
 import storeType from './store';
-
-// let db = MongoClient.connect(process.env.MONGO_URL)
-// (async () => {
-//   try {
-//     let db = await MongoClient.connect(process.env.MONGO_URL)
-//   } catch(e) {
-//     console.error(e.stack);
-//   }
-// })();
-
-// console.log('db from character',db);
-
+import { db } from '../../db';
 
 let character = {};
 

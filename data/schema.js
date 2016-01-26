@@ -10,8 +10,7 @@ import {
 } from 'graphql';
 
 import {
-  connectionDefinitions, // a helper function that takes a regular graphql node
-  // and gives back an object representing the new node connection structure
+  connectionDefinitions, 
   connectionArgs,
   connectionFromPromisedArray,
   mutationWithClientMutationId,
@@ -26,7 +25,6 @@ import storeType from './types/store';
 let Schema = (db) => {
   class Store {};
   let store = new Store();
-  // console.log('db from schema',db);
 
   let nodeDefs = nodeDefinitions(
     (globalId) => {
@@ -41,26 +39,6 @@ let Schema = (db) => {
       return null;
     }
   );
-
-
-  // let storeType = new GraphQLObjectType({
-  //   name: 'Store',
-  //   fields: () => ({
-  //     id: globalIdField('Store'),
-  //     characterConnection: {
-  //       type: character.characterConnection.connectionType,
-  //       args: connectionArgs,
-  //       resolve: (_, args) => connectionFromPromisedArray(
-  //         db.collection('characters').find({}).limit(args.first).toArray(),
-  //         args
-  //       )
-  //     }
-  //   })
-  // });
-
-  // let characterType = character.characterType;
-  // let characterConnection = character.characterConnection;
-  // let createCharacterMutation = character.createCharacterMutation;
 
   let schema = new GraphQLSchema({
     query: new GraphQLObjectType({
