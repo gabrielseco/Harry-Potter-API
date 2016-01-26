@@ -3,6 +3,9 @@ import Relay from 'react-relay';
 
 import Character from './Character';
 import CreateCharacterMutation from "../mutations/CreateCharacterMutation";
+import Navbar from "./components/navbar/Navbar";
+import content from "./content/navbar";
+
 
 class Main extends React.Component {
   setLimit = (e) => {
@@ -29,11 +32,13 @@ class Main extends React.Component {
     this.refs.newGender = "";
   };
   render() {
-    let content = this.props.store.characterConnection.edges.map(edge => {
+    console.log('content from main', content)
+    let characters = this.props.store.characterConnection.edges.map(edge => {
       return <Character key={edge.node.id} character={edge.node}/>
     })
     return (
       <div>
+        <Navbar navbarContent={content}/>
         <h3>Characters</h3>
         <form onSubmit={this.handleSubmit}>
           <input type="text" placeholder="firstName" ref="newFirstName" />
@@ -49,7 +54,7 @@ class Main extends React.Component {
           <option value="10">10</option>
         </select>
         <ul>
-          {content}
+          {characters}
         </ul>
       </div>
     )

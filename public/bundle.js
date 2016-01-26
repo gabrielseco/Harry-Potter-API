@@ -42975,6 +42975,14 @@
 	
 	var _CreateCharacterMutation2 = _interopRequireDefault(_CreateCharacterMutation);
 	
+	var _Navbar = __webpack_require__(/*! ./components/navbar/Navbar */ 425);
+	
+	var _Navbar2 = _interopRequireDefault(_Navbar);
+	
+	var _navbar = __webpack_require__(/*! ./content/navbar */ 429);
+	
+	var _navbar2 = _interopRequireDefault(_navbar);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -43023,12 +43031,14 @@
 	  _createClass(Main, [{
 	    key: 'render',
 	    value: function render() {
-	      var content = this.props.store.characterConnection.edges.map(function (edge) {
+	      console.log('content from main', _navbar2.default);
+	      var characters = this.props.store.characterConnection.edges.map(function (edge) {
 	        return _react2.default.createElement(_Character2.default, { key: edge.node.id, character: edge.node });
 	      });
 	      return _react2.default.createElement(
 	        'div',
 	        null,
+	        _react2.default.createElement(_Navbar2.default, { navbarContent: _navbar2.default }),
 	        _react2.default.createElement(
 	          'h3',
 	          null,
@@ -43066,7 +43076,7 @@
 	        _react2.default.createElement(
 	          'ul',
 	          null,
-	          content
+	          characters
 	        )
 	      );
 	    }
@@ -43441,6 +43451,358 @@
 	}(_reactRelay2.default.Mutation);
 	
 	exports.default = CreateCharacterMutation;
+
+/***/ },
+/* 425 */
+/*!***************************************************!*\
+  !*** ./js/components/components/navbar/Navbar.js ***!
+  \***************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Header = __webpack_require__(/*! ./Header */ 426);
+	
+	var _Header2 = _interopRequireDefault(_Header);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	// import SocialMediaLinks from "./SocialMediaLinks";
+	// import SectionLinks from "./SectionLinks";
+	// import content from "../../../data/navbarContent";
+	
+	var Navbar = function (_React$Component) {
+	  _inherits(Navbar, _React$Component);
+	
+	  function Navbar(props) {
+	    _classCallCheck(this, Navbar);
+	
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Navbar).call(this, props));
+	
+	    _this.state = {};
+	    return _this;
+	  }
+	
+	  _createClass(Navbar, [{
+	    key: "render",
+	    value: function render() {
+	      console.log(this.props.navbarContent);
+	      return _react2.default.createElement(
+	        "section",
+	        { id: "navbar" },
+	        _react2.default.createElement(
+	          "div",
+	          { className: "navbar navbar-default" },
+	          _react2.default.createElement(
+	            "div",
+	            { className: "navbar-header" },
+	            _react2.default.createElement(
+	              "button",
+	              { type: "button", className: "navbar-toggle collapsed", "data-toggle": "collapse", "data-target": "#navigation", "aria-expanded": "false" },
+	              _react2.default.createElement(
+	                "span",
+	                { className: "sr-only" },
+	                "Toggle navigation"
+	              ),
+	              _react2.default.createElement("span", { className: "icon-bar" }),
+	              _react2.default.createElement("span", { className: "icon-bar" }),
+	              _react2.default.createElement("span", { className: "icon-bar" })
+	            ),
+	            _react2.default.createElement(_Header2.default, { navbarContent: this.props.navbarContent })
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Navbar;
+	}(_react2.default.Component);
+	
+	exports.default = Navbar;
+
+/***/ },
+/* 426 */
+/*!***************************************************!*\
+  !*** ./js/components/components/navbar/Header.js ***!
+  \***************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _SectionLinks = __webpack_require__(/*! ./SectionLinks */ 427);
+	
+	var _SectionLinks2 = _interopRequireDefault(_SectionLinks);
+	
+	var _SocialMediaLinks = __webpack_require__(/*! ./SocialMediaLinks */ 428);
+	
+	var _SocialMediaLinks2 = _interopRequireDefault(_SocialMediaLinks);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Header = function (_React$Component) {
+	  _inherits(Header, _React$Component);
+	
+	  function Header(props) {
+	    _classCallCheck(this, Header);
+	
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Header).call(this, props));
+	
+	    _this.state = {};
+	    return _this;
+	  }
+	
+	  _createClass(Header, [{
+	    key: "render",
+	    value: function render() {
+	
+	      console.log(this.props.navbarContent);
+	
+	      return _react2.default.createElement(
+	        "section",
+	        { className: "headerDiv" },
+	        _react2.default.createElement(
+	          "h1",
+	          { className: "header" },
+	          _react2.default.createElement(
+	            "svg",
+	            { className: "sig", id: "Layer_1", "data-name": "Layer 1", xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 567.5 117.98" },
+	            _react2.default.createElement("defs", null),
+	            _react2.default.createElement(
+	              "title",
+	              null,
+	              "hp-api-layers"
+	            ),
+	            _react2.default.createElement("path", { className: "cls-1", d: "M7.59,155.94a322.38,322.38,0,0,1,50.07-8c1.38-.11,1.39-2.28,0-2.17a326.14,326.14,0,0,0-50.65,8,1.09,1.09,0,0,0,.58,2.09h0Z", transform: "translate(-6.24 -124.04)" }),
+	            _react2.default.createElement("path", { className: "cls-1", d: "M25.14,155.49a189.65,189.65,0,0,1,5.79,42.32,1.09,1.09,0,0,0,2.17,0,192.34,192.34,0,0,0-5.87-42.89,1.09,1.09,0,0,0-2.09.58h0Z", transform: "translate(-6.24 -124.04)" }),
+	            _react2.default.createElement("path", { className: "cls-1", d: "M44.08,155.48q0.67,19.84.61,39.69a1.09,1.09,0,0,0,2,.55l4.82-8.15c0.35-.6,1-2,2-1.59a5.08,5.08,0,0,1,1.12,1.69,23.06,23.06,0,0,0,1.39,2,16.64,16.64,0,0,0,9,5.62,17,17,0,0,0,18.27-7.07,1.1,1.1,0,0,0-.39-1.48c-2.12-1.36-4.22.14-5.13,2.19a5.5,5.5,0,0,0,2,6.76c2.82,2.16,7,2.42,10.39,2.84a77.88,77.88,0,0,0,15.6.28c1.38-.11,1.39-2.28,0-2.17a76.39,76.39,0,0,1-17.25-.5c-2.13-.32-4.58-0.56-6.51-1.6a4.08,4.08,0,0,1-2.48-3.34c0-1,.86-3.53,2.33-2.58l-0.39-1.48A15,15,0,0,1,60.66,191a14.81,14.81,0,0,1-4.09-4.4c-0.81-1.28-1.68-3-3.38-3.2s-2.52,1.42-3.28,2.67c-1.71,2.85-3.38,5.72-5.07,8.58l2,0.55q0.06-19.85-.61-39.69a1.09,1.09,0,0,0-2.17,0h0Z", transform: "translate(-6.24 -124.04)" }),
+	            _react2.default.createElement("path", { className: "cls-1", d: "M125.79,152.41a301.28,301.28,0,0,0,6.14,43.77c0.3,1.36,2.39.79,2.09-.58A297.25,297.25,0,0,1,128,152.41c-0.09-1.39-2.26-1.4-2.17,0h0Z", transform: "translate(-6.24 -124.04)" }),
+	            _react2.default.createElement("path", { className: "cls-1", d: "M147.06,125.08q3.62,45.26,10,90.25c0.19,1.38,2.28.79,2.09-.58q-6.29-44.68-9.88-89.67c-0.11-1.38-2.28-1.39-2.17,0h0Z", transform: "translate(-6.24 -124.04)" }),
+	            _react2.default.createElement("path", { className: "cls-1", d: "M117.31,170.68L151,162.83a1.09,1.09,0,0,0-.58-2.09l-33.74,7.85a1.09,1.09,0,0,0,.58,2.09h0Z", transform: "translate(-6.24 -124.04)" }),
+	            _react2.default.createElement("path", { className: "cls-1", d: "M168.09,158.78L170.65,215c0.06,1.39,2.23,1.4,2.17,0l-2.57-56.25c-0.06-1.39-2.23-1.4-2.17,0h0Z", transform: "translate(-6.24 -124.04)" }),
+	            _react2.default.createElement("path", { className: "cls-1", d: "M154.83,152.24c6.36-3.92,14.47-5.34,21.44-2.09,6.3,2.95,10.23,9.33,11.2,16.1,0.91,6.35-1,13.37-6.77,16.82-5.18,3.09-12.12,2.58-15.9-2.43-0.83-1.1-2.71,0-1.87,1.09,6.87,9.1,20.9,5.86,25.24-4,4.9-11.16-1-25.81-12.45-30.13-7.3-2.76-15.47-1.22-22,2.79a1.09,1.09,0,0,0,1.09,1.87h0Z", transform: "translate(-6.24 -124.04)" }),
+	            _react2.default.createElement("path", { className: "cls-1", d: "M191.9,182.82a57.7,57.7,0,0,1,20-.28c1.37,0.22,2-1.87.58-2.09a60.84,60.84,0,0,0-21.17.28c-1.37.26-.79,2.35,0.58,2.09h0Z", transform: "translate(-6.24 -124.04)" }),
+	            _react2.default.createElement("path", { className: "cls-1", d: "M223.56,212.61a377.32,377.32,0,0,1,19.8-57.15l-0.94.54c3.9,0.49,5.16,5.88,5.83,9,1.06,5.06,1.8,10.22,2.69,15.32l5.48,31.44c0.24,1.37,2.33.79,2.09-.58l-6.32-36.28c-0.86-5-1.28-10.3-3.17-15-1.23-3.06-3.15-5.68-6.6-6.11a1,1,0,0,0-.94.54,380.75,380.75,0,0,0-20,57.67,1.09,1.09,0,0,0,2.09.58h0Z", transform: "translate(-6.24 -124.04)" }),
+	            _react2.default.createElement("path", { className: "cls-1", d: "M230.16,186.14a208.17,208.17,0,0,1,38.2-2.69,1.09,1.09,0,0,0,0-2.17,211.3,211.3,0,0,0-38.78,2.77c-1.37.23-.79,2.32,0.58,2.09h0Z", transform: "translate(-6.24 -124.04)" }),
+	            _react2.default.createElement("path", { className: "cls-1", d: "M278.15,156.74L280.72,213c0.06,1.39,2.23,1.4,2.17,0l-2.57-56.25c-0.06-1.39-2.23-1.4-2.17,0h0Z", transform: "translate(-6.24 -124.04)" }),
+	            _react2.default.createElement("path", { className: "cls-1", d: "M264.89,150.2c6.36-3.92,14.47-5.34,21.44-2.09,6.3,2.95,10.23,9.33,11.2,16.1,0.91,6.35-1,13.37-6.77,16.82-5.18,3.09-12.12,2.58-15.9-2.43-0.83-1.1-2.71,0-1.87,1.09,6.87,9.1,20.9,5.86,25.24-4,4.9-11.16-1-25.81-12.45-30.13-7.3-2.76-15.47-1.22-22,2.79a1.09,1.09,0,0,0,1.09,1.87h0Z", transform: "translate(-6.24 -124.04)" }),
+	            _react2.default.createElement("path", { className: "cls-1", d: "M315.48,154.07A484,484,0,0,1,318.89,210a1.09,1.09,0,0,0,2.17,0,484,484,0,0,0-3.42-55.92c-0.16-1.37-2.33-1.39-2.17,0h0Z", transform: "translate(-6.24 -124.04)" }),
+	            _react2.default.createElement("path", { className: "cls-1", d: "M305.62,157.9l26.46-1.36c1.39-.07,1.4-2.24,0-2.17l-26.46,1.36c-1.39.07-1.4,2.24,0,2.17h0Z", transform: "translate(-6.24 -124.04)" }),
+	            _react2.default.createElement("path", { className: "cls-1", d: "M315.23,209.88a48.14,48.14,0,0,0,19.54-1.64,1.09,1.09,0,0,0-.58-2.09,46.6,46.6,0,0,1-19,1.56c-1.38-.17-1.37,2,0,2.17h0Z", transform: "translate(-6.24 -124.04)" }),
+	            _react2.default.createElement("path", { className: "cls-1", d: "M368.36,159.41l2.57,56.25c0.06,1.39,2.23,1.4,2.17,0l-2.57-56.25c-0.06-1.39-2.23-1.4-2.17,0h0Z", transform: "translate(-6.24 -124.04)" }),
+	            _react2.default.createElement("path", { className: "cls-1", d: "M355.1,152.87c6.36-3.92,14.47-5.34,21.44-2.09,6.3,2.95,10.23,9.33,11.2,16.1,0.91,6.35-1,13.37-6.77,16.82-5.18,3.09-12.12,2.58-15.9-2.43-0.83-1.1-2.71,0-1.87,1.09,6.87,9.1,20.9,5.86,25.24-4,4.9-11.16-1-25.81-12.45-30.13-7.3-2.76-15.47-1.22-22,2.79a1.09,1.09,0,0,0,1.09,1.87h0Z", transform: "translate(-6.24 -124.04)" }),
+	            _react2.default.createElement("path", { className: "cls-1", d: "M382.12,212.83c-2-3.54,2.93-6.78,6.11-6.1,3.77,0.8,6.62,4.6,10,6.35,7.37,3.86,14.24-1.69,19.48-6.53L416.13,205a5.75,5.75,0,0,0,1.1,8.1c3.3,2.49,7.36-.07,9.53-2.79a1.15,1.15,0,0,0,.17-1.31l-3.6-7.64L422.1,203a26.41,26.41,0,0,0,18.77-1.64l-1.63-.94q1.4,20.28,2.53,40.58h2.17a83.27,83.27,0,0,1,1.37-28.84c0.47-2.05,2.83-12.61,6.68-9.1,1.52,1.38,1.41,4,.61,5.75-1,2.17-3.06,3.67-4.94,5l1.09,1.87c13.09-9.58,20.64-25.14,21.82-41.14H468.4a281.21,281.21,0,0,0,.52,36.55,1.1,1.1,0,0,0,1.63.94,36.65,36.65,0,0,0,9.72-7.58l-1.31.17A36.94,36.94,0,0,0,512,202.88a1.1,1.1,0,0,0-.26-2c-3.82-1.43-5.63,4.3-4.2,7,2.56,4.87,10.13,3.11,14.36,2.28,12.12-2.38,23-9.6,26.56-21.93a24.57,24.57,0,0,0-1.57-18.47,1.09,1.09,0,0,0-2,.55c-0.45,9.66-1,20.06,3.22,29.07,3.14,6.76,9.51,13.05,17.45,12.54,1.39-.09,1.4-2.26,0-2.17-7.91.51-13.85-6.5-16.35-13.33-3-8.31-2.56-17.43-2.15-26.11l-2,.55c5.51,10.22,1,23.46-7.72,30.33a37.18,37.18,0,0,1-16,6.87c-2.77.55-6.07,1.3-8.89,0.69-1.53-.33-3.06-1.25-3.25-2.94-0.12-1.1.51-3.42,2-2.87l-0.26-2a34.65,34.65,0,0,1-30.89,1.75,1.13,1.13,0,0,0-1.31.17,35,35,0,0,1-9.28,7.24l1.63,0.94a281.21,281.21,0,0,1-.52-36.55c0.07-1.4-2.07-1.38-2.17,0-1.12,15.17-8.32,30.18-20.74,39.27-1.11.81,0,2.7,1.09,1.87,3.76-2.72,7.74-6.44,6.28-11.56-1.19-4.19-5.57-5.07-8.31-1.73a17.66,17.66,0,0,0-3,6.91,82.9,82.9,0,0,0-2,10.15,85.2,85.2,0,0,0,0,21.51c0.17,1.35,2.25,1.43,2.17,0q-1.13-20.3-2.53-40.58a1.1,1.1,0,0,0-1.63-.94,24.08,24.08,0,0,1-17.1,1.42,1.1,1.1,0,0,0-1.22,1.59l3.6,7.64,0.17-1.31c-1.31,1.64-3.6,3.86-6,3-1.91-.7-2.92-3.64-1.59-5.24a1.09,1.09,0,0,0-1.53-1.53c-3.71,3.43-8.61,8-14.12,7.12-4.66-.77-7.68-5.18-11.87-7-5.17-2.26-13.25,2.9-9.89,8.79a1.09,1.09,0,0,0,1.87-1.09h0Z", transform: "translate(-6.24 -124.04)" }),
+	            _react2.default.createElement("path", { className: "cls-1", d: "M541.43,190.2L572.7,193c1.39,0.13,1.38-2,0-2.17L541.43,188c-1.39-.13-1.38,2,0,2.17h0Z", transform: "translate(-6.24 -124.04)" })
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          { className: "collapse navbar-collapse", id: "navigation" },
+	          _react2.default.createElement(_SocialMediaLinks2.default, { socialMedia: this.props.navbarContent.socialMedia }),
+	          _react2.default.createElement(_SectionLinks2.default, { sections: this.props.navbarContent.sections })
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Header;
+	}(_react2.default.Component);
+	
+	// <p className="vol">Vol {this.props.dailyProphet.vol} </p>
+	// <p className="issueDate"> {this.props.dailyProphet.date} </p>
+	// <p className="issue"> Issue {this.props.dailyProphet.issue} </p>
+	
+	exports.default = Header;
+
+/***/ },
+/* 427 */
+/*!*********************************************************!*\
+  !*** ./js/components/components/navbar/SectionLinks.js ***!
+  \*********************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Navbar = function (_React$Component) {
+	  _inherits(Navbar, _React$Component);
+	
+	  function Navbar(props) {
+	    _classCallCheck(this, Navbar);
+	
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Navbar).call(this, props));
+	
+	    _this.state = {};
+	    return _this;
+	  }
+	
+	  _createClass(Navbar, [{
+	    key: "render",
+	    value: function render() {
+	      var sections = this.props.sections.map(function (section, idx) {
+	        return _react2.default.createElement(
+	          "li",
+	          { key: idx },
+	          _react2.default.createElement(
+	            "a",
+	            { href: section.link },
+	            section.name
+	          )
+	        );
+	      });
+	      return _react2.default.createElement(
+	        "div",
+	        null,
+	        _react2.default.createElement(
+	          "ul",
+	          { className: "nav navbar-nav navbar-right" },
+	          sections
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Navbar;
+	}(_react2.default.Component);
+	
+	exports.default = Navbar;
+
+/***/ },
+/* 428 */
+/*!*************************************************************!*\
+  !*** ./js/components/components/navbar/SocialMediaLinks.js ***!
+  \*************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Navbar = function (_React$Component) {
+	  _inherits(Navbar, _React$Component);
+	
+	  function Navbar(props) {
+	    _classCallCheck(this, Navbar);
+	
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Navbar).call(this, props));
+	
+	    _this.state = {};
+	    return _this;
+	  }
+	
+	  _createClass(Navbar, [{
+	    key: "render",
+	    value: function render() {
+	      console.log(this.props.socialMedia);
+	      var socialMedia = this.props.socialMedia.map(function (socialMediaAcct, idx) {
+	        return _react2.default.createElement(
+	          "li",
+	          { key: idx },
+	          _react2.default.createElement(
+	            "a",
+	            { href: socialMediaAcct.link },
+	            _react2.default.createElement("i", { className: socialMediaAcct.icon })
+	          )
+	        );
+	      });
+	      return _react2.default.createElement(
+	        "div",
+	        null,
+	        _react2.default.createElement(
+	          "ul",
+	          { className: "nav navbar-nav", id: "social-media-links" },
+	          socialMedia
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Navbar;
+	}(_react2.default.Component);
+	
+	exports.default = Navbar;
+
+/***/ },
+/* 429 */
+/*!*****************************************!*\
+  !*** ./js/components/content/navbar.js ***!
+  \*****************************************/
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var content = {
+	  socialMedia: [{ name: "twitter", link: "https://twitter.com/VirsaviyaEfraim", icon: "fa fa-twitter" }, { name: "github", link: "https://github.com/Virsaviya", icon: "fa fa-github" }],
+	  sections: [{ name: "Home", link: "#" }, { name: "About", link: "#about" }, { name: "Docs", link: "#portfolio" }, { name: "Login", link: "#login" }, { name: "Logout", link: "#logout" }, { name: "Register", link: "#register" }, { name: "Submit Data", link: "#submitData" }, { name: "Review Data", link: "#reviewData" }]
+	};
+	
+	exports.default = content;
 
 /***/ }
 /******/ ]);

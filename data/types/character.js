@@ -54,13 +54,7 @@ character.characterType = new GraphQLObjectType({
     name: { 
       type: new GraphQLNonNull(GraphQLString),
       description: 'The full name of this character',
-      resolve: (obj) => {
-        if (obj.middleName) {
-          return `${obj.firstName} ${obj.middleName} ${obj.lastName}`
-        } else {
-          return `${obj.firstName} ${obj.lastName}`
-        }
-      }
+      resolve: (obj) => (obj.middleName) ? `${obj.firstName} ${obj.middleName} ${obj.lastName}` : `${obj.firstName} ${obj.lastName}`
     },
     dob: { 
       type: new GraphQLNonNull(GraphQLInt),
@@ -81,7 +75,6 @@ character.characterType = new GraphQLObjectType({
     occupation: {
       type: new GraphQLNonNull(GraphQLString),
       description: 'The occupation of this charcter.  Multiple listed if applicable.',
-      // resolve: (obj) => (obj.occupation)
     },
     magical: {
       type: new GraphQLNonNull(GraphQLBoolean),
