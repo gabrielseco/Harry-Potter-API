@@ -27,12 +27,19 @@
     "flux": "^2.1.1",
     "graphql": "^0.4.14",
     "graphql-relay": "^0.3.6",
+    "history": "^2.0.0-rc2",
     "jquery": "^2.2.0",
+    "jwt-decode": "^1.5.1",
     "kerberos": "0.0.18",
     "mongodb": "^2.1.4",
     "react": "^0.14.6",
+    "react-addons-linked-state-mixin": "^0.14.6",
     "react-dom": "^0.14.6",
+    "react-mixin": "^3.0.3",
     "react-relay": "^0.6.1",
-    "webpack": "^1.12.11"
+    "react-router": "^2.0.0-rc5",
+    "reqwest": "^2.0.5",
+    "webpack": "^1.12.11",
+    "when": "^3.7.7"
   }
 }

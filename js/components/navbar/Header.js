@@ -8,11 +8,12 @@ class Header extends React.Component{
     this.state = {  }
   }
   render(){
-
-    console.log(this.props.navbarContent)
-
     return(
       <section className="headerDiv">
+        <div className="collapse navbar-collapse" id="navigation">
+          <SocialMediaLinks socialMedia={this.props.navbarContent.socialMedia} />
+          <SectionLinks sections={this.props.navbarContent.sections} />
+        </div>
         <h1 className="header">
           <svg className="sig" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 567.5 117.98">
             <defs>
@@ -40,16 +41,9 @@ class Header extends React.Component{
             <path className="cls-1" d="M541.43,190.2L572.7,193c1.39,0.13,1.38-2,0-2.17L541.43,188c-1.39-.13-1.38,2,0,2.17h0Z" transform="translate(-6.24 -124.04)"/>
           </svg>
         </h1>
-        <div className="collapse navbar-collapse" id="navigation">
-          <SocialMediaLinks socialMedia={this.props.navbarContent.socialMedia} />
-          <SectionLinks sections={this.props.navbarContent.sections} />
-        </div>
       </section>
     )
   }
 }
 
-        // <p className="vol">Vol {this.props.dailyProphet.vol} </p>
-        // <p className="issueDate"> {this.props.dailyProphet.date} </p>
-        // <p className="issue"> Issue {this.props.dailyProphet.issue} </p>
 export default Header;

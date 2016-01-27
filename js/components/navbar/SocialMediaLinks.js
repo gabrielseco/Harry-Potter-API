@@ -6,7 +6,6 @@ class Navbar extends React.Component{
     this.state = {  }
   }
   render(){
-    console.log(this.props.socialMedia);
     let socialMedia = this.props.socialMedia.map( (socialMediaAcct, idx) => {
       return (
         <li key={idx}>

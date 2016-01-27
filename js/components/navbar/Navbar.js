@@ -1,8 +1,7 @@
 import React from "react";
-// import SocialMediaLinks from "./SocialMediaLinks";
-// import SectionLinks from "./SectionLinks";
-// import content from "../../../data/navbarContent";
 import Header from "./Header";
+
+import AuthAppWrapper from '../authentication/AuthApp';
 
 class Navbar extends React.Component{
   constructor(props){
@@ -10,7 +9,6 @@ class Navbar extends React.Component{
     this.state = {  }
   }
   render(){
-    console.log(this.props.navbarContent)
     return(
       <section id="navbar">
         <div className="navbar navbar-default">
@@ -21,12 +19,13 @@ class Navbar extends React.Component{
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-          <Header navbarContent={this.props.navbarContent} />
+            <AuthAppWrapper />
           </div>   
         </div>
       </section>
     )
   }
 }
+          // <Header navbarContent={this.props.navbarContent} />
 
 export default Navbar

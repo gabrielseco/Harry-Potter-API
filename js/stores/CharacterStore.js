@@ -1,4 +1,4 @@
-  import AppDispatcher from '../AppDispatcher';
+import AppDispatcher from '../AppDispatcher';
 import { ActionTypes } from '../Constants';
 import { EventEmitter } from 'events';
 
@@ -16,7 +16,7 @@ class CharacterStore extends EventEmitter {
           // this.emit('change');
           break;
         default:
-          // do nothing
+          break;
       }
     });
   }
