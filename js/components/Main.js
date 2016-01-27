@@ -21,6 +21,15 @@ class Main extends React.Component {
         lastName: this.refs.newLastName.value,
         middleName: this.refs.newMiddleName.value,
         dob: this.refs.newDob.value,
+        dod: this.refs.newDod.value,
+        house: this.refs.newHouse.value,
+        occupation: this.refs.newOccupation.value,
+        magical: this.refs.newMagical.value,
+        wand: this.refs.newWand.value,
+        patronus: this.refs.newPatronus.value,
+        DA: this.refs.newDA.value,
+        deathEater: this.refs.newDeathEater.value,
+        specialSkills: this.refs.newSpecialSkills.value,
         gender: this.refs.newGender.value,
         store: this.props.store
       })
@@ -29,6 +38,15 @@ class Main extends React.Component {
     this.refs.newLastName = "";
     this.refs.newMiddleName = "";
     this.refs.newDob = "";
+    this.refs.newDod = "";
+    this.refs.newHouse = "";
+    this.refs.newOccupation = "";
+    this.refs.newMagical = "";
+    this.refs.newWand = "";
+    this.refs.newPatronus = "";
+    this.refs.newDA = "";
+    this.refs.newDeathEater = "";
+    this.refs.newSpecialSkills = "";
     this.refs.newGender = "";
   };
   render() {

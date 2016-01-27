@@ -43017,6 +43017,15 @@
 	        lastName: _this.refs.newLastName.value,
 	        middleName: _this.refs.newMiddleName.value,
 	        dob: _this.refs.newDob.value,
+	        dod: _this.refs.newDod.value,
+	        house: _this.refs.newHouse.value,
+	        occupation: _this.refs.newOccupation.value,
+	        magical: _this.refs.newMagical.value,
+	        wand: _this.refs.newWand.value,
+	        patronus: _this.refs.newPatronus.value,
+	        DA: _this.refs.newDA.value,
+	        deathEater: _this.refs.newDeathEater.value,
+	        specialSkills: _this.refs.newSpecialSkills.value,
 	        gender: _this.refs.newGender.value,
 	        store: _this.props.store
 	      }));
@@ -43024,6 +43033,15 @@
 	      _this.refs.newLastName = "";
 	      _this.refs.newMiddleName = "";
 	      _this.refs.newDob = "";
+	      _this.refs.newDod = "";
+	      _this.refs.newHouse = "";
+	      _this.refs.newOccupation = "";
+	      _this.refs.newMagical = "";
+	      _this.refs.newWand = "";
+	      _this.refs.newPatronus = "";
+	      _this.refs.newDA = "";
+	      _this.refs.newDeathEater = "";
+	      _this.refs.newSpecialSkills = "";
 	      _this.refs.newGender = "";
 	    }, _temp), _possibleConstructorReturn(_this, _ret);
 	  }
