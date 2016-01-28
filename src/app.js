@@ -1,23 +1,21 @@
-import { MasterPage, IndexPage, LoginPage, RegistrationPage, ProfilePage } from './components/pages';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { IndexRoute, Route } from 'react-router';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
-import createHashHistory from 'history/lib/createHashHistory';
 import ReactStormpath, { Router, LoginRoute, LogoutRoute, AuthenticatedRoute } from 'react-stormpath';
+import { MasterPage, IndexPage, LoginPage, RegisterPage, ProfilePage } from './pages';
 
 ReactStormpath.init();
 
 ReactDOM.render(
-  <Router history={createHashHistory({ queryKey: false })}>
   <Router history={createBrowserHistory()}>
     <Route path='/' component={MasterPage}>
-    <AuthenticatedRoute path='/profile' component={ProfilePage} />
-    <Route path='/register' component={RegistrationPage} />
+      <IndexRoute component={IndexPage} />
       <LoginRoute path='/login' component={LoginPage} />
       <LogoutRoute path='/logout' />
-  </Route>
-</Router>
+      <Route path='/register' component={RegisterPage} />
+      <AuthenticatedRoute path='/profile' component={ProfilePage} />
+    </Route>
   </Router>,
   document.getElementById('app-container')
 );

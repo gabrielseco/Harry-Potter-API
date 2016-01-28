@@ -5,6 +5,7 @@
 // import { MongoClient } from 'mongodb';
 // import { graphql } from 'graphql';
 // import { introspectionQuery } from 'graphql/utilities'
+var morgan = require('morgan');
 var webpack = require('webpack');
 var config = require('./webpack.config');
 var express = require('express');
@@ -45,6 +46,8 @@ var path = require('path');
 var app = express();
 var compiler = webpack(config);
 
+app.use(morgan('dev'));
+
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
   publicPath: config.output.publicPath
@@ -54,12 +57,12 @@ stormpath.init(app, {
   website: true
 });
 
-app.get('public/stylesheets/bootstrap.min.css', function (req, res) {
-  res.sendFile(path.join(__dirname, 'public/stylesheets/bootstrap.min.css'));
+app.get('/css/bootstrap.min.css', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build/css/bootstrap.min.css'));
 });
 
 app.get('*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'public/index.html'));
+  res.sendFile(path.join(__dirname, 'build/index.html'));
 });
 
 app.on('stormpath.ready', function () {

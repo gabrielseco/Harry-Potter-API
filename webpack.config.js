@@ -1,6 +1,3 @@
-var path = require('path');
-var webpack = require('webpack');
-
 // module.exports = {
 //   entry: './js/app.js',
 //   devtool: 'eval-source-map',
@@ -22,25 +19,24 @@ var webpack = require('webpack');
 //   }
 // }
 
+var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
   entry: [
-    './js/app'
+    './src/app'
   ],
   devtool: 'eval-source-map',
   output: {
-    path: __dirname + "/public",
-    filename: 'bundle.js'
-    // publicPath: '/js/'
+    path: __dirname,
+    filename: 'app.js',
+    publicPath: '/js/'
   },
   module: {
     loaders: [{
-    test: /\.js$/,
-    loader: ['babel'],
-    include: path.join(__dirname, 'js'),
-    query: {
-        plugins: ['./babelRelayPlugin']
-    }
-  }]
+      test: /\.js$/,
+      loaders: ['babel'],
+      include: path.join(__dirname, 'src')
+    }]
   }
 };
