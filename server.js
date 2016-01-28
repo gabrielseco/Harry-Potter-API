@@ -57,12 +57,16 @@ stormpath.init(app, {
   website: true
 });
 
-app.get('/css/bootstrap.min.css', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build/css/bootstrap.min.css'));
-});
+// app.get('/stylesheets/bootstrap.min.css', function (req, res) {
+//   res.sendFile(path.join(__dirname, 'public/stylesheets/bootstrap.min.css'));
+// });
+
+// app.get('/css/bootstrap.min.css', function (req, res) {
+//   res.sendFile(path.join(__dirname, 'build/css/bootstrap.min.css'));
+// });
 
 app.get('*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build/index.html'));
+  res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 app.on('stormpath.ready', function () {
