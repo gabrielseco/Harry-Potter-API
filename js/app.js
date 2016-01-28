@@ -1,35 +1,30 @@
+import { MasterPage, IndexPage, LoginPage, RegistrationPage, ProfilePage } from './components/pages';
 import React from 'react';
-// import ReactDOM from 'react-dom';
-// import Relay from 'react-relay';
-import Router, {Route} from 'react-router';
+import ReactDOM from 'react-dom';
+import { IndexRoute, Route } from 'react-router';
+import createBrowserHistory from 'history/lib/createBrowserHistory';
+import createHashHistory from 'history/lib/createHashHistory';
+import ReactStormpath, { Router, LoginRoute, LogoutRoute, AuthenticatedRoute } from 'react-stormpath';
 
-import AuthApp from './components/authentication/AuthApp';
-import Login from './components/authentication/Login';
-import Register from './components/authentication/Register';
-import Home from './components/home/Home';
-import RouterContainer from './services/RouterContainer';
-import LoginActions from './actions/LoginActions';
-// import AuthAppWrapper from './components/authentication/AuthAppWrapper';
-// import Main from './components/Main';
+ReactStormpath.init();
 
-var routes = (
-  <Route handler={AuthApp}>
-    <Route name="login" handler={Login}/>
-    <Route name="register" handler={Register}/>
-    <Route name="home" path='/' handler={Home}/>
+ReactDOM.render(
+  <Router history={createHashHistory({ queryKey: false })}>
+  <Router history={createBrowserHistory()}>
+    <Route path='/' component={MasterPage}>
+    <AuthenticatedRoute path='/profile' component={ProfilePage} />
+    <Route path='/register' component={RegistrationPage} />
+      <LoginRoute path='/login' component={LoginPage} />
+      <LogoutRoute path='/logout' />
   </Route>
+</Router>
+  </Router>,
+  document.getElementById('app-container')
 );
 
-var router = Router.create({routes});
-RouterContainer.set(router);
+// import Relay from 'react-relay';
 
-let jwt = localStorage.getItem('jwt');
-if (jwt) LoginActions.loginUser(jwt);
-
-router.run(function (Handler) {
-  React.render(<Handler />, document.getElementById('react'));
-});
-
+// import Main from './components/Main';
 
 // RELAY STUFF
 
