@@ -1,6 +1,6 @@
 import React from "react";
 
-class ApiInterface extends React.Component{
+export default class ApiInterface extends React.Component{
   constructor(props){
     super(props);
     this.state = {  }
@@ -16,4 +16,3 @@ class ApiInterface extends React.Component{
   }
 }
 
-export default ApiInterface

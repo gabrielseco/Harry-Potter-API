@@ -1,10 +1,10 @@
-// import fs from 'fs';
+import fs from 'fs';
 // import express from 'express';
-// import Schema from './data/schema';
-// import GraphQLHTTP from 'express-graphql'
-// import { MongoClient } from 'mongodb';
-// import { graphql } from 'graphql';
-// import { introspectionQuery } from 'graphql/utilities'
+import Schema from './data/schema';
+import GraphQLHTTP from 'express-graphql'
+import { MongoClient } from 'mongodb';
+import { graphql } from 'graphql';
+import { introspectionQuery } from 'graphql/utilities'
 var morgan = require('morgan');
 var webpack = require('webpack');
 var config = require('./webpack.config');
@@ -42,6 +42,7 @@ var stormpath = require('express-stormpath');
 //     console.error(e.stack);
 //   }
 // })();
+
 var path = require('path');
 var app = express();
 var compiler = webpack(config);
@@ -61,8 +62,8 @@ stormpath.init(app, {
 //   res.sendFile(path.join(__dirname, 'public/stylesheets/bootstrap.min.css'));
 // });
 
-app.get('/css/bootstrap.min.css', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build/css/bootstrap.min.css'));
+app.get('/css/style.css', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build/css/style.css'));
 });
 
 app.get('*', function (req, res) {
