@@ -16,25 +16,29 @@ h1 {
 }
 
 h3 {
-  color: #FDB200
+  color: #FDB200;
 }
 
-
-.fa-twitter:before {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  font-size: 30px;
+.btn-primary {
+  color: #B13F00;
+  background-color: #FDB200;
+  border-color: #140800;
 }
 
-.fa-github:before {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  font-size: 30px;
+.btn-primary:hover {
+  color: #FDB200;
+  background-color: #B13F00;
+  border-color: #140800;
+
+}
+
+.box {
+  border: 1px solid #FDB200;
 }
 
 .navbar-default  {
-  background-color: #000000;
   color: #FDB200;
+  background-color: #000000;
 }
 
 .navbar-default .navbar-nav>li>a  {
