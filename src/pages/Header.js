@@ -17,9 +17,15 @@ export default class Header extends React.Component {
           <div id="navbar-collapse" className="collapse navbar-collapse">
             <ul className="nav navbar-nav">
               <li><Link to="/">Home</Link></li>
+              <li><Link to="/reviewSubmissionsPage">Submissions</Link></li>
               <Authenticated>
                 <li>
-                  <Link to="/profile">Profile</Link>
+                  <Link to="/mySubmissionsPage">My Submissions</Link>
+                </li>
+              </Authenticated>
+              <Authenticated>
+                <li>
+                  <Link to="/newSubmissionPage">New Submission Page</Link>
                 </li>
               </Authenticated>
             </ul>
@@ -34,9 +40,14 @@ export default class Header extends React.Component {
                   <LogoutLink />
                 </li>
               </Authenticated>
+              <Authenticated>
+                <li>
+                  <mySubmissionsPage />
+                </li>
+              </Authenticated>
               <NotAuthenticated>
                 <li>
-                  <Link to="/register">Create Account</Link>
+                  <Link to="/register">Register</Link>
                 </li>
               </NotAuthenticated>
             </ul>

@@ -3,13 +3,17 @@ body {
   background-color: #300000;
   /*background: url("../images/seamlessParchment.jpg");*/
   background-repeat: repeat;
-  color: #B13F00;
+  color: #FDB200;
 }
 
 h1 {
   font: 40px "Parry Hotter";
   text-align: center;
   color: #FDB200;
+}
+
+h3 {
+  color: #FDB200
 }
 
 

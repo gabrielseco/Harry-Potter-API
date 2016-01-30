@@ -2,26 +2,35 @@ import React from 'react';
 import DocumentTitle from 'react-document-title';
 import { UserComponent } from 'react-stormpath';
 
-export default class ProfilePage extends UserComponent {
+export default class ReviewSubmissionsPage extends UserComponent {
   render() {
     return (
-      <DocumentTitle title={`My Profile`}>
+      <DocumentTitle title={`ReviewSubmissionsPage`}>
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
-              <h3>My Profile</h3>
+              <h3>Submissions</h3>
               <hr />
             </div>
           </div>
           <div className="row">
             <ul className="list-group">
               <li className="list-group-item">
-                <strong>First Name</strong>
-                <span className="pull-right">{ this.state.user.givenName }</span>
+                <strong> Submission</strong>
               </li>
+            </ul>
+          </div>
+           <div className="row">
+            <ul className="list-group">
               <li className="list-group-item">
-                <strong>Last Name</strong>
-                <span className="pull-right">{ this.state.user.surname }</span>
+                <strong> Submission</strong>
+              </li>
+            </ul>
+          </div>
+           <div className="row">
+            <ul className="list-group">
+              <li className="list-group-item">
+                <strong> Submission</strong>
               </li>
             </ul>
           </div>

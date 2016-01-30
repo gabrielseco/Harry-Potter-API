@@ -16,7 +16,8 @@ export default class IndexPage extends React.Component {
           <ol className="lead">
             <li><Link to="/register">Registration</Link></li>
             <li><LoginLink /></li>
-            <li><Link to="/profile">Custom Profile Data</Link></li>
+            <li><Link to="/reviewSubmissionsPage">Submissions</Link></li>
+            <li><Link to="/mySubmissionsPage">My Submissions</Link></li>
           </ol>
         </div>
       </div>
