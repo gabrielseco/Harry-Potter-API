@@ -6,7 +6,7 @@
   "scripts": {
     "setup": "npm i",
     "start": "babel-node --presets es2015,stage-0,react server.js",
-    "dev": "nodemon server.js --ignore data/schema.json --exec babel-node --presets es2015,stage-0,react"
+    "dev": "nodemon server.js --ignore data/schema.json --ignore data/hp-database/schema.json --exec babel-node --presets es2015,stage-0,react"
   },
   "author": "",
   "license": "ISC",

@@ -22,7 +22,7 @@ import {
 } from 'graphql-relay';
 
 import storeType from './store';
-import { db } from '../../../db';
+import { db } from '../../../../db';
 
 let character = {};
 

@@ -20,7 +20,7 @@ import {
 } from 'graphql-relay';
 
 import character from './character';
-import { db } from '../../../db';
+import { db } from '../../../../db';
 
 // let nodeDefs = nodeDefinitions(
 //   (globalId) => {
