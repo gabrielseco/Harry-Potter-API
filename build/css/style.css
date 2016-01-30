@@ -6,11 +6,11 @@ body {
   color: #FDB200;
 }
 
-@font-face {font-family: Parry Hotter; src: url('ParryHotter.ttf'); }
+@font-face {font-family: ParryHotter; src: url('../fonts/ParryHotter.ttf'); }
 
 h1 {
   font-size: 40px;
-  font-family: Parry Hotter;
+  font-family: ParryHotter;
   text-align: center;
   color: #FDB200;
 }
