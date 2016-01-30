@@ -1,9 +1,7 @@
 import React from "react";
-import Home from "./home/Home";
+import Relay from 'react-relay';
+// import Home from "./home/Home";
 import Navbar from "./navbar/Navbar";
-import navbarContent from "../../data/navbarContent";
-import dailyProphetContent from "../../data/dailyProphetContent";
-
 
 class AppController extends React.Component{
   constructor(props){
@@ -11,19 +9,26 @@ class AppController extends React.Component{
     this.state = {  }
   }
   render(){
-    let randomIdx = (Math.floor(Math.random() * dailyProphetContent.issues.length));
-    let todaysIssue = dailyProphetContent.issues[randomIdx];
-    let todaysHeadline = todaysIssue.headline;
-    let todaysQuidditch = todaysIssue.quidditch;
-    let todaysNavbar = todaysIssue.issueDate;
-
     return(
       <div className="container">
-        <Navbar links={navbarContent} dailyProphet={todaysNavbar} />
-        <Home headline={todaysHeadline} quidditch={todaysQuidditch} />
+        <Navbar />
+        <h1>{this.props.relay.variables.header}</h1>
       </div>
     )
   }
 }
+
+AppController = Relay.createContainer(AppController, {
+  initialVariables: {
+    header: 'AppController here!'
+  },
+  fragments: {
+    store: () => Relay.QL`
+      fragment on Store {
+        id,
+      }
+    `
+  }
+})
 
 export default AppController

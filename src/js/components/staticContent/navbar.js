@@ -5,12 +5,12 @@ let content = {
   ],
   sections: [
     { name: "Home", link: "#"},
-    { name: "About", link: "#about"},
-    { name: "Docs", link: "#portfolio"},
+    // { name: "About", link: "#about"},
+    // { name: "Docs", link: "#portfolio"},
     { name: "Login", link: "#login"},
     { name: "Logout", link: "#logout"},
     { name: "Register", link: "#register"},
-    { name: "Submit Data", link: "#submitData"},
+    { name: "Submit Data", link: "#submitData"}, //profile page
     { name: "Review Data", link: "#reviewData"},
   ]
 }

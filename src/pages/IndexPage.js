@@ -6,7 +6,7 @@ export default class IndexPage extends React.Component {
   render() {
     return (
       <div className="container">
-      <h1 className="header"> The HP-Api Prophet</h1>
+      <h1 className="header"> The Harry Potter Api</h1>
         <hr />
         <div className="jumbotron">
           <p>

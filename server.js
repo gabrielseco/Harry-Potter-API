@@ -1,6 +1,6 @@
 import fs from 'fs';
 // import express from 'express';
-import Schema from './data/schema';
+// import Schema from './data/schema';
 import GraphQLHTTP from 'express-graphql'
 import { MongoClient } from 'mongodb';
 import { graphql } from 'graphql';
