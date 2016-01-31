@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { IndexRoute, Route } from 'react-router';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 import ReactStormpath, { Router, LoginRoute, LogoutRoute, AuthenticatedRoute } from 'react-stormpath';
-import { MasterPage, IndexPage, LoginPage, RegisterPage, MySubmissionsPage, NewSubmissionPage, ReviewSubmissionsPage, GraphQL, BottomInfo } from './pages';
+import { MasterPage, IndexPage, LoginPage, RegisterPage, VerifyEmailPage, ResetPasswordPage, MySubmissionsPage, NewSubmissionPage, ReviewSubmissionsPage, GraphQL, BottomInfo } from './pages';
 
 ReactStormpath.init();
 
@@ -17,6 +17,9 @@ ReactDOM.render(
       <Route path='/reviewSubmissionsPage' component={ReviewSubmissionsPage} />
       <AuthenticatedRoute path='/mySubmissionsPage' component={MySubmissionsPage} />
       <AuthenticatedRoute path='/newSubmissionPage' component={NewSubmissionPage} />
+      <Route path='/verify' component={VerifyEmailPage} />
+      <Route path='/forgot' component={ResetPasswordPage} />
+
     </Route>
   </Router>,
   document.getElementById('app-container')

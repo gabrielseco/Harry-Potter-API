@@ -9,6 +9,7 @@ export NewSubmissionPage from './NewSubmissionPage'
 export ReviewSubmissionsPage from './ReviewSubmissionsPage'
 export GraphQL from './GraphQL'
 export BottomInfo from './BottomInfo'
+export VerifyEmailPage from './VerifyEmailPage'
 
 
 
