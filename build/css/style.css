@@ -1,16 +1,15 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #300000;
-  /*background: url("../images/seamlessParchment.jpg");*/
   background-repeat: repeat;
   color: #FDB200;
 }
 
-@font-face {font-family: ParryHotter; src: url('../fonts/ParryHotter.ttf'); }
+@font-face {font-family: Harry Potter; src: url('../fonts/ParryHotter.ttf'); }
 
 h1 {
   font-size: 40px;
-  font-family: ParryHotter;
+  font-family: Harry Potter;
   text-align: center;
   color: #FDB200;
 }
@@ -19,17 +18,51 @@ h3 {
   color: #FDB200;
 }
 
+.graphQL {
+  height: 700px;
+  width: 900px;
+  border: 3px solid #FDB200;
+  margin: 0 auto;
+}
+
 .btn-primary {
   color: #B13F00;
   background-color: #FDB200;
   border-color: #140800;
 }
 
+@media (min-width: 1200px)
+.col-lg-4 {
+    width: 33.33333333%;
+}
+
+@media (min-width: 1200px)
+.col-lg-1 {
+    width: 8.33333333%;
+}
+
+@media (min-width: 1200px)
+.col-lg-3 {
+    width: 25%;
+}
+
+p {
+  margin: 0 0 10px;
+}
+
+.center {
+  text-align: center;
+}
+
+.pad_bot {
+  padding-bottom: 34px;
+}
+
 .btn-primary:hover {
   color: #FDB200;
   background-color: #B13F00;
   border-color: #140800;
-
+  cursor: url(http://cur.cursors-4u.net/user/use-1/use160.cur), progress !important;
 }
 
 .box {
@@ -37,20 +70,49 @@ h3 {
 }
 
 .navbar-default  {
-  color: #FDB200;
-  background-color: #000000;
+  background: repeating-linear-gradient(
+  45deg,
+  #FDB200,
+  #FDB200 10px,
+  #300000 10px,
+  #300000 20px
+);
+  border: 2px solid #FDB200;
+
 }
 
 .navbar-default .navbar-nav>li>a  {
   color: #FDB200;
+  background-color: #000000;
+  text-align: center;
+  height: 20px;
+  top: 0;
 }
 
 .jumbotron {
-  background-color: #000000;
+  background-color:black;
+  background-image:
+  radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+  radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+  radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+  radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
   color: #FDB200;
+  border: 3px solid #FDB200;
 }
 
 a {
   color: #FDB200;
 }
+
+a:hover {
+  cursor: url(http://cur.cursors-4u.net/user/use-1/use160.cur), progress !important;
+  color: #011F25
+}
+
+hr {
+  border-top: 1px solid #FDB200;
+}
+
 
