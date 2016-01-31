@@ -14,6 +14,7 @@ export default class GraphQL extends UserComponent {
             </div>
           </div>
           <div className="graphQL">
+            <iframe className="col-md-8 api" src="http://localhost:3000/graphql" width="100%" height="500" />
           </div>
         </div>
       </DocumentTitle>
