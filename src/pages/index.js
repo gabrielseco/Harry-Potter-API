@@ -7,9 +7,8 @@ export ResetPasswordPage from './ResetPasswordPage'
 export MySubmissionsPage from './MySubmissionsPage'
 export NewSubmissionPage from './NewSubmissionPage'
 export ReviewSubmissionsPage from './ReviewSubmissionsPage'
-export ReviewSubmissionsPage from './GraphQL'
-export ReviewSubmissionsPage from './WhatIsThis'
-export ReviewSubmissionsPage from './HowCanIUseThis'
+export GraphQL from './GraphQL'
+export BottomInfo from './BottomInfo'
 
 
 

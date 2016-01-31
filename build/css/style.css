@@ -23,6 +23,7 @@ h3 {
   width: 900px;
   border: 3px solid #FDB200;
   margin: 0 auto;
+  margin-bottom: 50px;
 }
 
 .btn-primary {
@@ -31,20 +32,42 @@ h3 {
   border-color: #140800;
 }
 
+.bottomInfo {
+  background-color:black;
+  background-image:
+  radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+  radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+  radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+  radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+  color: #FDB200;
+  border: 3px solid #FDB200;
+}
+
 @media (min-width: 1200px)
 .col-lg-4 {
-    width: 33.33333333%;
+    width: 33.33333%;
 }
 
 @media (min-width: 1200px)
 .col-lg-1 {
-    width: 8.33333333%;
+    width: 16.0%;
 }
 
 @media (min-width: 1200px)
 .col-lg-3 {
-    width: 25%;
+    width: 50.0%;
+    margin-right: 175px;
 }
+
+@media (min-width: 768px)
+  .col-lg-4, .col-lg-3, .col-lg-1 {
+    padding-right: 3px;
+    padding-left: 35px;
+  }
+
+
 
 p {
   margin: 0 0 10px;
@@ -56,6 +79,9 @@ p {
 
 .pad_bot {
   padding-bottom: 34px;
+  padding-top: 34px;
+  margin-left: 30px;
+  margin-left: 30px;
 }
 
 .btn-primary:hover {
