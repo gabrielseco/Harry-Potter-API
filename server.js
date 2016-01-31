@@ -1,80 +1,87 @@
 import fs from 'fs';
-// import express from 'express';
-// import Schema from './data/schema';
-import GraphQLHTTP from 'express-graphql'
-import { MongoClient } from 'mongodb';
+import express from 'express';
+import GraphQLHTTP from 'express-graphql';
 import { graphql } from 'graphql';
-import { introspectionQuery } from 'graphql/utilities'
-var morgan = require('morgan');
-var webpack = require('webpack');
-var config = require('./webpack.config');
-var express = require('express');
-var stormpath = require('express-stormpath');
-// import db from './db';
+import { MongoClient } from 'mongodb';
+import { introspectionQuery } from 'graphql/utilities';
+import morgan from 'morgan';
+import path from 'path';
+import webpack from 'webpack';
+import config from './webpack.config';
+import stormpath from 'express-stormpath';
 
-// console.log('MongoClient in server', MongoClient);
+import Schema from './src/data/schema';
+import HPSchema from './src/data/hp-database/schema';
+import db from './db';
 
+const server = express();
+const graphqlServer = express();
+const compiler = webpack(config);
 
-// const PORT = process.env.PORT || 3000;
+const SERVER_PORT = process.env.PORT || 3000;
+const GRAPHQL_PORT = process.env.PORT || 8080;
+// const SERVER_PORT = process.env.PORT || 3000;
 
-// const app = express();
-// app.use(express.static('public'));
+(async () => {
+  try {
+    let db = await MongoClient.connect(process.env.MONGO_URL)
+    let hpSchema = HPSchema(db);
+    let schema = Schema(db);
 
+    server.use(morgan('dev'));
 
-// (async () => {
-//   try {
-//     let db = await MongoClient.connect(process.env.MONGO_URL)
-//     let schema = Schema(db);
+    // publicly available HP graphQL IDE
+    let json = await graphql(schema, introspectionQuery);
+    fs.writeFile('./src/data/schema.json', JSON.stringify(json, null, 2), err => {
+      if (err) throw err.stack;
+      console.log('json schema created')
+    });
+    server.use('/graphql', GraphQLHTTP({
+      schema: hpSchema,
+      graphiql: true
+    }));
 
-//     app.use('/graphql', GraphQLHTTP({
-//       schema,
-//       graphiql: true
-//     }));
+    server.use(require('webpack-dev-middleware')(compiler, {
+      noInfo: true,
+      publicPath: config.output.publicPath
+    }));
 
-//     app.listen(PORT, () => console.log(`Listening on port ${PORT}.`));
+    stormpath.init(server, {
+      website: true
+    });
 
-//     let json = await graphql(schema, introspectionQuery);
-//     fs.writeFile('./data/schema.json', JSON.stringify(json, null, 2), err => {
-//       if (err) throw err.stack;
-//       console.log('json schema created')
-//     });
-//   } catch(e) {
-//     console.error(e.stack);
-//   }
-// })();
+    server.get('/css/style.css', function (req, res) {
+      res.sendFile(path.join(__dirname, 'build/css/style.css'));
+    });
 
-var path = require('path');
-var app = express();
-var compiler = webpack(config);
+    server.get('*', function (req, res) {
+      res.sendFile(path.join(__dirname, 'build/index.html'));
+    });
 
-app.use(morgan('dev'));
+    server.on('stormpath.ready', function () {
+      server.listen(SERVER_PORT, 'localhost', function (err) {
+        if (err) {
+          return console.error(err);
+        }
+        console.log(`Server  listening on port ${SERVER_PORT}`);
+      });
+    });
 
-app.use(require('webpack-dev-middleware')(compiler, {
-  noInfo: true,
-  publicPath: config.output.publicPath
-}));
+    // private graphQL IDE for app
+    graphqlServer.use('/', GraphQLHTTP({
+      schema: schema,
+      graphiql: true
+    }));
+    let hpJson = await graphql(hpSchema, introspectionQuery);
+    fs.writeFile('./src/data/hp-database/schema.json', JSON.stringify(hpJson, null, 2), err => {
+      if (err) throw err.stack;
+      console.log('json hpSchema created')
+    });
+    graphqlServer.listen(GRAPHQL_PORT, () => console.log(`GraphQL listening on port ${GRAPHQL_PORT}.`));
+    
 
-stormpath.init(app, {
-  website: true
-});
+  } catch(e) {
+    console.error(e.stack);
+  }
+})();
 
-// app.get('/stylesheets/bootstrap.min.css', function (req, res) {
-//   res.sendFile(path.join(__dirname, 'public/stylesheets/bootstrap.min.css'));
-// });
-
-app.get('/css/style.css', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build/css/style.css'));
-});
-
-app.get('*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build/index.html'));
-});
-
-app.on('stormpath.ready', function () {
-  app.listen(3000, 'localhost', function (err) {
-    if (err) {
-      return console.error(err);
-    }
-    console.log('Listening at http://localhost:3000');
-  });
-});
