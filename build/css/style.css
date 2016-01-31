@@ -141,11 +141,3 @@ hr {
   border-top: 1px solid #FDB200;
 }
 
-
-curl -s --user 'api:7AOG50RT15TADW86MCNQ6J029' \
-    https://api.mailgun.net/v3/HP-API/messages \
-    -F from='Excited User <mailgun@HP-API>' \
-    -F to=YOU@HP-API \
-    -F to=bar@example.com \
-    -F subject='Hello' \
-    -F text='You are now registered with The Harry Potter API! Login into your account and get started adding to the database!'
