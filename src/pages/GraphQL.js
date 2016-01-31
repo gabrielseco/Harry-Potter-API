@@ -1,20 +1,20 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
+import { UserComponent } from 'react-stormpath';
 
-import { LoginForm } from 'react-stormpath';
-
-export default class LoginPage extends React.Component {
+export default class GraphQL extends UserComponent {
   render() {
     return (
-      <DocumentTitle title={`Login`}>
+      <DocumentTitle title={`GraphQL`}>
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
-              <h3>Login</h3>
+              <h3>GraphQL</h3>
               <hr />
             </div>
           </div>
-          <LoginForm redirectTo="/mySubmissionsPage" />
+          <div className="graphQL">
+          </div>
         </div>
       </DocumentTitle>
     );

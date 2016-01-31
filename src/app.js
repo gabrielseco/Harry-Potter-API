@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { IndexRoute, Route } from 'react-router';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 import ReactStormpath, { Router, LoginRoute, LogoutRoute, AuthenticatedRoute } from 'react-stormpath';
-import { MasterPage, IndexPage, LoginPage, RegisterPage, ProfilePage } from './pages';
+import { MasterPage, IndexPage, LoginPage, RegisterPage, MySubmissionsPage, NewSubmissionPage, ReviewSubmissionsPage, GraphQL, BottomInfo } from './pages';
 
 ReactStormpath.init();
 
@@ -14,7 +14,9 @@ ReactDOM.render(
       <LoginRoute path='/login' component={LoginPage} />
       <LogoutRoute path='/logout' />
       <Route path='/register' component={RegisterPage} />
-      <AuthenticatedRoute path='/profile' component={ProfilePage} />
+      <Route path='/reviewSubmissionsPage' component={ReviewSubmissionsPage} />
+      <AuthenticatedRoute path='/mySubmissionsPage' component={MySubmissionsPage} />
+      <AuthenticatedRoute path='/newSubmissionPage' component={NewSubmissionPage} />
     </Route>
   </Router>,
   document.getElementById('app-container')
