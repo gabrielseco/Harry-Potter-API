@@ -1,20 +1,9 @@
 import {
   GraphQLSchema,
-  GraphQLObjectType,
-  // GraphQLInt,
-  // GraphQLString,
-  // GraphQLList,
-  // GraphQLBoolean,
-  // GraphQLNonNull,
-  // GraphQLID
+  GraphQLObjectType
 } from 'graphql';
 
 import {
-  // connectionDefinitions, 
-  // connectionArgs,
-  // connectionFromPromisedArray,
-  // mutationWithClientMutationId,
-  // globalIdField,
   fromGlobalId,
   nodeDefinitions,
 } from 'graphql-relay';
@@ -49,12 +38,6 @@ let Schema = (db) => {
           type: storeType,
           resolve: () => store
         }
-      })
-    }),
-    mutation: new GraphQLObjectType({
-      name: 'Mutation',
-      fields: () => ({
-        createCharacter: character.createCharacterMutation
       })
     })
   });

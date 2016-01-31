@@ -20,7 +20,6 @@ const compiler = webpack(config);
 
 const SERVER_PORT = process.env.PORT || 3000;
 const GRAPHQL_PORT = process.env.PORT || 8080;
-// const SERVER_PORT = process.env.PORT || 3000;
 
 (async () => {
   try {
@@ -30,7 +29,7 @@ const GRAPHQL_PORT = process.env.PORT || 8080;
 
     server.use(morgan('dev'));
 
-    // publicly available HP graphQL IDE
+    // publicly available HP GraphQL IDE
     let json = await graphql(schema, introspectionQuery);
     fs.writeFile('./src/data/schema.json', JSON.stringify(json, null, 2), err => {
       if (err) throw err.stack;
@@ -67,7 +66,7 @@ const GRAPHQL_PORT = process.env.PORT || 8080;
       });
     });
 
-    // private graphQL IDE for app
+    // private GraphQL IDE for app
     graphqlServer.use('/', GraphQLHTTP({
       schema: schema,
       graphiql: true

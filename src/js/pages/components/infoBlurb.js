@@ -2,10 +2,10 @@ import React from 'react';
 import DocumentTitle from 'react-document-title';
 import { UserComponent } from 'react-stormpath';
 
-export default class BottomInfo extends UserComponent {
+export default class infoBlurb extends UserComponent {
   render() {
     return (
-      <DocumentTitle title={`BottomInfo`}>
+      <DocumentTitle title={`infoBlurb`}>
       <div className="container bottomInfo">
           <div className="row pad_bot">
             <div className="col-sm-1 col-lg-1 col-md-1"></div>
