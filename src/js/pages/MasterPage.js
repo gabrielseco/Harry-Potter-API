@@ -1,23 +1,23 @@
 import { Link } from 'react-router';
 import React, { PropTypes } from 'react';
 import DocumentTitle from 'react-document-title';
-
-// import ApiInterface from './ApiInterface'
-import Header from './Header';
-import GraphQL from './GraphQL'
-import BottomInfo from './BottomInfo'
-
 import { LoginLink } from 'react-stormpath';
+
+import Header from './components/Header';
+import GraphQL from './components/GraphqlIde'
+import infoBlurb from './components/infoBlurb'
+
 
 export default class MasterPage extends React.Component {
   render() {
+    console.log(this.props.children)
     return (
       <DocumentTitle title='Stormpath Express + React Example'>
         <div className='MasterPage'>
           <Header />
           { this.props.children }
           <GraphQL />
-          <BottomInfo />
+          <infoBlurb />
         </div>
       </DocumentTitle>
     );

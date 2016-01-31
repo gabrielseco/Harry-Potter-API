@@ -2,8 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { IndexRoute, Route } from 'react-router';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
-import ReactStormpath, { Router, LoginRoute, LogoutRoute, AuthenticatedRoute } from 'react-stormpath';
-import { MasterPage, IndexPage, LoginPage, RegisterPage, MySubmissionsPage, NewSubmissionPage, ReviewSubmissionsPage, GraphQL, BottomInfo } from './pages';
+import ReactStormpath, { 
+  Router, 
+  LoginRoute, 
+  LogoutRoute, 
+  AuthenticatedRoute 
+} from 'react-stormpath';
+import { 
+  MasterPage, 
+  IndexPage, 
+  LoginPage, 
+  RegisterPage, 
+  MySubmissionsPage, 
+  NewSubmissionPage, 
+  ReviewSubmissionsPage, 
+  GraphQL, 
+  BottomInfo 
+} from './js/pages';
 
 ReactStormpath.init();
 
