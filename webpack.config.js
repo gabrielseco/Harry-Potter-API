@@ -15,31 +15,14 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.js$/,
-      loaders: ['babel'],
+      exclude: /node_modules/,
+      // loaders: ['babel'],
+      loader: 'babel-loader',
+      query: {
+        presets: ['react', 'es2015', 'stage-0'],
+        plugins: ['./babelRelayPlugin']
+      },
       include: path.join(__dirname, 'src')
     }]
   }
 };
-
-
-
-// module.exports = {
-//   entry: './js/app.js',
-//   devtool: 'eval-source-map',
-//   output: {
-//     path: __dirname + "/public",
-//     filename: "bundle.js"
-//   },
-//   module: {
-//     loaders: [
-//       { test: /\.js$/,
-//         exclude: /node_modules/,
-//         loader: 'babel-loader',
-//         query: {
-//           presets: ['react', 'es2015', 'stage-0'],
-//           plugins: ['./babelRelayPlugin']
-//         }
-//       }
-//     ]
-//   }
-// }

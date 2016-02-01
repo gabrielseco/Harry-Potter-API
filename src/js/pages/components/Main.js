@@ -89,7 +89,6 @@ Main = Relay.createContainer(Main, {
   fragments: { //takes a fragment, name it('store') anything, must be a function that returns a graphql query
     store: () => Relay.QL`
       fragment on Store {
-        id,
         characterConnection(first: $limit) {
           edges {
             node {
