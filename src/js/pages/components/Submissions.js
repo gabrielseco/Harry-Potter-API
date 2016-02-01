@@ -13,6 +13,7 @@ export default class Submissions extends React.Component {
           {/*display info for each submission*/}
           Name: Harry
 
+
         </div>
 
 

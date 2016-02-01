@@ -5,17 +5,17 @@ body {
   color: #FDB200;
 }
 
-@font-face {font-family: Harry Potter; src: url('../fonts/ParryHotter.ttf'); }
+/*@font-face {font-family: Parry Hotter; src: url('../fonts/ParryHotter.ttf'); }*/
 
 h1 {
   font-size: 40px;
-  font-family: Harry Potter;
+  font-family: Parry Hotter;
   text-align: center;
   color: #FDB200;
 }
 
 h3 {
-  color: #FDB200;
+  color: #FFF;
 }
 
 #graphQL {
@@ -118,14 +118,27 @@ p {
 }
 
 .navbar-default .navbar-nav>li>a  {
-  color: #FDB200;
-  background-color: #000000;
+  color: #300000;
+  margin: 5px;
+  margin-top: 10px;
+  background-color: #FDB200;
+  border: 2px solid #300000;
   text-align: center;
-  height: 20px;
+  height: auto;
+  width: auto;
+  font-weight: 900;
+  font-size: 20px;
   top: 0;
 }
 
-.jumbotron {
+.navbar-default .navbar-nav>li>a:hover {
+  color: #FDB200;
+  background-color: #300000;
+  border: 2px solid #FDB200;
+}
+
+
+.jumbotron, .newSubmissions {
   background-color:black;
   background-image:
   radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
@@ -138,13 +151,66 @@ p {
   border: 3px solid #FDB200;
 }
 
-a {
+.newSubmissions {
+  padding-left: 150px;
+  padding-right: 150px;
+  background-color:black;
+  background-image:
+  radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+  radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+  radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+  radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+  color: #FDB200;
+  border: 3px solid #FDB200;
+}
+
+label {
+  color: #FDB200;
+}
+
+.list-group-item {
+  background-color: transparent;
+}
+
+.checkbox label, .radio label {
+  padding-left: 20px;
+}
+
+.checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {
+  margin-top: -10px;
+}
+
+.submissions {
+  padding-left: 150px;
+  padding-right: 150px;
+  background-color:black;
+  background-image:
+  radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+  radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+  radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+  radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+  color: #FDB200;
+  border: 3px solid #FDB200;
+}
+}
+
+a, h4, li {
   color: #FDB200;
 }
 
 a:hover {
   cursor: url(http://cur.cursors-4u.net/user/use-1/use160.cur), progress !important;
-  color: #011F25
+  /*color: #011F25;*/
+  color: #FDB200;
+}
+
+a:focus, a:hover {
+  color: #FDB200;
+
 }
 
 hr {

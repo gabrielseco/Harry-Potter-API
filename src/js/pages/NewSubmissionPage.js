@@ -9,7 +9,7 @@ export default class NewSubmissionPage extends UserComponent {
   render() {
     return (
       <DocumentTitle title={`NewSubmissionPage`}>
-        <div className="container">
+        <div className="container newSubmissions">
           <div className="row">
             <div className="col-xs-12">
               <h3>New Submission Page</h3>
