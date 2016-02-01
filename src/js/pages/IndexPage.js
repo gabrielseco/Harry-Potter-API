@@ -3,29 +3,29 @@ import React, { PropTypes } from 'react';
 import { LoginLink } from 'react-stormpath';
 
 export default class IndexPage extends React.Component {
+          // <pre><code> 
+          //   query {
+          //     store {
+          //       characterConnection(first: 3) {
+          //         edges {
+          //           node {
+          //             name
+          //             specialSkills
+          //           }
+          //         }
+          //       }
+          //     }
+          //   }
+          // </code></pre>
   render() {
     return (
       <div className="container">
       <h1 className="header"> The Harry Potter Api</h1>
         <hr />
         <div className="jumbotron">
-          <h3>Welcome to the Harry Potter API!</h3>
+          <p>Welcome to the Harry Potter API!</p>
           <p>A GraphQL API that gives access to user generated Harry Potter data - written and verified by fans.  </p>
           <p>Try this query: </p>
-          <pre><code> 
-            query {
-              store {
-                characterConnection(first: 3) {
-                  edges {
-                    node {
-                      name
-                      specialSkills
-                    }
-                  }
-                }
-              }
-            }
-          </code></pre>
 
         </div>
 
@@ -42,18 +42,15 @@ export default class IndexPage extends React.Component {
           <div className="container bottomInfo">
             <div className="row pad_bot">
               <div className="col-sm-6 col-xs-12">
-                <h3 className="center">What Is This?</h3>
-                <p>The Harry Potter API, or "HP-API" is the first data source that allows fans to add information into the database.  The information that you sumbit will be verified by Harry Potter fans who use this site and permantly remain on the database.</p>
+                <h3 className="center">Are you a developer?</h3>
+                <p>HP-API (or 'happi') is a graphQL API that let's you get exactly the information that you need - no more and no less.  You can play around in the IDE and explore the data.  At the moment, only a character schema is built, but spells, potions and places schemas will soon join the list!  Explore graphQL, play with the API and happi creating!</p>
+                <p>Collaborators are most welcome.  Reach out on github if you're interested.</p>
               </div>
               <div className="col-sm-6 col-xs-12">
-                <h3 className="center">How Can I Use This?</h3>
-                <p>The HP-API database is generated soley by our users of the site who have registered.  If you would like to just view the data, feel free to check out our Submissions.</p>
-                <p>If you would like to start entering submissions into the data base, follow the steps listed in our directions up at the top of the page.  Once you have registered an account, you are able to submit data.  After submitting data that is approved by other users on the database, you will be given permission to also authorize other users submissions.
-                  </p>
+                <h3 className="center">Are you a Harry Potter fan?</h3>
+                <p>Help build and verify the accuracy of the data in this HP database!</p>
+                <p>An application program interface, or API, lets code tinkerers build apps.  In this case, developers can use HP-API (or just 'happi') to build games and other apps using the data available here.  That's where you come in!  This is an open source database where fans like you can create data and confirm the accuracy of the data.  Register, login and start adding!</p>
               </div>
-              <br />
-              <br />
-              <p className='col-xs-12 center'>Thank you for visiting our site, we hope you enjoy!</p>
             </div>
           </div>
         </div>
