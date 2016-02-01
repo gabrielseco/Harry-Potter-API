@@ -15,11 +15,9 @@ import HPSchema from './src/data/hp-database/schema';
 import db from './db';
 
 const server = express();
-const graphqlServer = express();
 const compiler = webpack(config);
 
-const SERVER_PORT = process.env.PORT || 3000;
-const GRAPHQL_PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 
 (async () => {
   try {
@@ -33,13 +31,24 @@ const GRAPHQL_PORT = process.env.PORT || 8080;
     let json = await graphql(schema, introspectionQuery);
     fs.writeFile('./src/data/schema.json', JSON.stringify(json, null, 2), err => {
       if (err) throw err.stack;
-      console.log('json schema created')
+      console.log('App json schema created')
     });
     server.use('/graphql', GraphQLHTTP({
       schema: hpSchema,
       graphiql: true
     }));
 
+    // private GraphQL IDE for app
+    server.use('/privateGraphql', GraphQLHTTP({
+      schema: schema,
+      graphiql: true
+    }));
+    let hpJson = await graphql(hpSchema, introspectionQuery);
+    fs.writeFile('./src/data/hp-database/schema.json', JSON.stringify(hpJson, null, 2), err => {
+      if (err) throw err.stack;
+      console.log('HP  json schema created')
+    });
+    
     server.use(require('webpack-dev-middleware')(compiler, {
       noInfo: true,
       publicPath: config.output.publicPath
@@ -58,26 +67,13 @@ const GRAPHQL_PORT = process.env.PORT || 8080;
     });
 
     server.on('stormpath.ready', function () {
-      server.listen(SERVER_PORT, 'localhost', function (err) {
+      server.listen(PORT, 'localhost', function (err) {
         if (err) {
           return console.error(err);
         }
-        console.log(`Server  listening on port ${SERVER_PORT}`);
+        console.log(`Server listening on port ${PORT}`);
       });
     });
-
-    // private GraphQL IDE for app
-    graphqlServer.use('/', GraphQLHTTP({
-      schema: schema,
-      graphiql: true
-    }));
-    let hpJson = await graphql(hpSchema, introspectionQuery);
-    fs.writeFile('./src/data/hp-database/schema.json', JSON.stringify(hpJson, null, 2), err => {
-      if (err) throw err.stack;
-      console.log('json hpSchema created')
-    });
-    graphqlServer.listen(GRAPHQL_PORT, () => console.log(`GraphQL listening on port ${GRAPHQL_PORT}.`));
-    
 
   } catch(e) {
     console.error(e.stack);
