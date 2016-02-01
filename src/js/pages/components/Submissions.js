@@ -5,24 +5,24 @@ export default class Submissions extends React.Component {
     super(props);
   }
   render() {
-    console.log('sample submission', this.props.submissions)
-    let submissions = this.props.submissions.map( (submission, idx) => {
-      return (
-        <div className='submission' key={idx}>
-          awesome submissions
-          {/*display info for each submission*/}
-          Name: Harry
-
-
-        </div>
-
-
-      )
+    let submissions = this.props.characters.map ( (character, charIdx) => {
+      console.log(this.props.keys)
+      let keys =  this.props.keys.map( (key, idx) => {
+        // (character[key.name] === 'true') ? character[key.name] = 'yes' : character[key.name] = 'no'
+        return (
+          <li className="list-group-item" key={idx}>
+            <span className='col-sm-6 col-xs-12 charLabel'>{key.label}</span>
+            <span className='col-sm-6 col-xs-12'>{character[key.name]}</span>
+          </li>
+        )
+      }) 
+      return keys;     
     })
     return (
-      <div>
+      <ul className='list-group'>
         {submissions}
-      </div>
+      </ul>
     )
   }
 }
+

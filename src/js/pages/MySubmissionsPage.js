@@ -7,9 +7,11 @@ export default class MySubmissionsPage extends UserComponent {
     return (
       <DocumentTitle title={`MySubmissionsPage`}>
         <div className="container submissions">
-                   <div className="row">
-                   <h3>My Submissions</h3>
-              <hr />
+          <div className="row">
+          <h3>My Submissions</h3>
+          <hr />
+
+          
             <ul className="list-group">
               <li className="list-group-item">
                 <strong>First Name</strong>
