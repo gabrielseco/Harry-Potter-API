@@ -16,8 +16,6 @@ import { MasterPage,
   MySubmissionsPage, 
   NewSubmissionPage, 
   ReviewSubmissionsPage, 
-  GraphQL, 
-  BottomInfo
  } from './js/pages';
 
 ReactStormpath.init();
@@ -29,9 +27,9 @@ ReactDOM.render(
       <LoginRoute path='/login' component={LoginPage} />
       <LogoutRoute path='/logout' />
       <Route path='/register' component={RegisterPage} />
-      <Route path='/reviewSubmissionsPage' component={ReviewSubmissionsPage} />
-      <AuthenticatedRoute path='/mySubmissionsPage' component={MySubmissionsPage} />
-      <AuthenticatedRoute path='/newSubmissionPage' component={NewSubmissionPage} />
+      <Route path='/review-submissions' component={ReviewSubmissionsPage} />
+      <AuthenticatedRoute path='/my-submissions' component={MySubmissionsPage} />
+      <AuthenticatedRoute path='/new-submission' component={NewSubmissionPage} />
       <Route path='/verify' component={VerifyEmailPage} />
       <Route path='/forgot' component={ResetPasswordPage} />
 

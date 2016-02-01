@@ -16,10 +16,10 @@ export default class MasterPage extends React.Component {
         <div className='MasterPage'>
           <Header />
           { this.props.children }
-          <GraphQL />
-          <infoBlurb />
         </div>
       </DocumentTitle>
     );
   }
 }
+          // <GraphQL />
+          // <infoBlurb />

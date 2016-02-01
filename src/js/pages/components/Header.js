@@ -17,15 +17,15 @@ export default class Header extends React.Component {
           <div id="navbar-collapse" className="collapse navbar-collapse">
             <ul className="nav navbar-nav">
               <li><Link to="/">Home</Link></li>
-              <li><Link to="/reviewSubmissionsPage">Submissions</Link></li>
+              <li><Link to="/review-submissions">Review Submissions</Link></li>
               <Authenticated>
                 <li>
-                  <Link to="/mySubmissionsPage">My Submissions</Link>
+                  <Link to="/my-submissions">My Submissions</Link>
                 </li>
               </Authenticated>
               <Authenticated>
                 <li>
-                  <Link to="/newSubmissionPage">New Submission Page</Link>
+                  <Link to="/new-submission">New Submission</Link>
                 </li>
               </Authenticated>
             </ul>
