@@ -8,7 +8,6 @@ import Header from './components/Header';
 
 export default class MasterPage extends React.Component {
   render() {
-    console.log(this.props.children)
     return (
       <DocumentTitle title='MasterPage'>
         <div className='MasterPage'>
@@ -19,3 +18,5 @@ export default class MasterPage extends React.Component {
     );
   }
 }
+          // <GraphQL />
+          // <infoBlurb />
