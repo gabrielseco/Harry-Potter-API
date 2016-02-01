@@ -10,7 +10,7 @@ export default class MasterPage extends React.Component {
   render() {
     console.log(this.props.children)
     return (
-      <DocumentTitle title='Stormpath Express + React Example'>
+      <DocumentTitle title='MasterPage'>
         <div className='MasterPage'>
           <Header />
           { this.props.children }
