@@ -20,7 +20,7 @@ import { MasterPage,
 
 class AppRouter extends React.Component {
   render() {
-    <div>
+    return (
       <Router history={createBrowserHistory()}>
         <Route path='/' component={MasterPage}>
           <IndexRoute component={IndexPage} />
@@ -34,7 +34,7 @@ class AppRouter extends React.Component {
           <Route path='/forgot' component={ResetPasswordPage} />
         </Route>
       </Router>
-    </div>
+    )
   }
 }
 
