@@ -5,7 +5,7 @@ var character = [
     label: 'First Name',
     required: true,
     options: { 
-      maxlength: 20, 
+      maxLength: 20, 
       placeholder: 'Harry'
     }
   },
@@ -15,7 +15,7 @@ var character = [
     label: 'Last Name',
     required: true,
     options: { 
-      maxlength: 20, 
+      maxLength: 20, 
       placeholder: 'Potter'
     }
   },
@@ -26,7 +26,7 @@ var character = [
     required: false,
     options: { 
       unkown: true, 
-      maxlength: 50,
+      maxLength: 50,
       placeholder: 'Potter'
     }
   },
@@ -95,7 +95,7 @@ var character = [
     label: 'Special Skills',
     required: true,
     options: { 
-      maxlength: 100,
+      maxLength: 100,
       placeholder: "Defence Against the Dark Arts; Flying; Surviving Avada Kedavras"
     }
   },
@@ -107,7 +107,7 @@ var character = [
     options: {
       unkown: true,
       na: true,
-      maxlength: 100,
+      maxLength: 100,
       placeholder: 'Auror'
     }
   },
@@ -119,7 +119,7 @@ var character = [
     options: {
       unkown: true,
       na: true,
-      maxlength: 50,
+      maxLength: 50,
       placeholder: '11 inch holly with a phoenix feather core'
     }
   },
@@ -131,7 +131,7 @@ var character = [
     options: {
       unkown: true,
       na: true,
-      maxlength: 20,
+      maxLength: 20,
       placeholder: 'stag'
     }
   }

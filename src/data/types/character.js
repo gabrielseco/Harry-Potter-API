@@ -48,7 +48,7 @@ character.characterType = new GraphQLObjectType({
       description: 'The last name of this character',
     },
     middleName: { 
-      type: new GraphQLNonNull(GraphQLString),
+      type: GraphQLString,
       description: 'The middle name of this character, if they have one.',
     },
     name: { 

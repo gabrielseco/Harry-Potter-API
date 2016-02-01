@@ -2,7 +2,8 @@ import React from 'react';
 import DocumentTitle from 'react-document-title';
 import { UserComponent } from 'react-stormpath';
 
-import NewSubmissionForm from './componenets/NewSubmissionForm';
+import NewSubmissionForm from './components/submissionForm/NewSubmissionForm';
+import characterForm from '../../staticContent/forms/characterForm';
 
 export default class NewSubmissionPage extends UserComponent {
   render() {
@@ -14,7 +15,7 @@ export default class NewSubmissionPage extends UserComponent {
               <h3>New Submission Page</h3>
               <hr />
             </div>
-            <NewSubmissionForm />
+            <NewSubmissionForm formType={characterForm} />
           </div>
         </div>
       </DocumentTitle>

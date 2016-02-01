@@ -10,7 +10,6 @@ import infoBlurb from './components/infoBlurb'
 
 export default class MasterPage extends React.Component {
   render() {
-    console.log(this.props.children)
     return (
       <DocumentTitle title='Stormpath Express + React Example'>
         <div className='MasterPage'>
