@@ -37,24 +37,9 @@ export default class NewSubmissionForm extends React.Component {
     })
     return (
       <form className="form-horizontal">
-        <div className="form-group">
-          <label htmlFor="firstName" className="col-sm-2 control-label">First Name</label>
-          <div className="col-sm-10">
-            <input type="text" className="form-control" id="firstName" placeholder="Email" />
-          </div>
-        </div>
-        <div className="form-group">
-          <label htmlFor="lastName" className="col-sm-2 control-label">Last Name</label>
-          <div className="col-sm-10">
-            <input type="text" className="form-control" id="lastName" placeholder="Password" />
-          </div>
-        </div>
         {inputs}
-
-
-      {/*submit button*/}
         <div className="form-group">
-          <div className="col-sm-offset-2 col-sm-10">
+          <div className="col-sm-offset-3 col-sm-9">
             <button type="submit" className="btn btn-default">Submit</button>
           </div>
         </div>

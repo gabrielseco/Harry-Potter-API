@@ -27,7 +27,7 @@ var character = [
     options: { 
       unkown: true, 
       maxLength: 50,
-      placeholder: 'Potter'
+      placeholder: 'James'
     }
   },
   { 
