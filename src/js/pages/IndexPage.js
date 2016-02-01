@@ -9,16 +9,24 @@ export default class IndexPage extends React.Component {
       <h1 className="header"> The Harry Potter Api</h1>
         <hr />
         <div className="jumbotron">
-          <p>
-            <strong>Welcome to our Harry Potter API!</strong>
-          </p>
-          <p>Ready to begin? Follow the steps below so you can begin adding data into the database:</p>
-          <ol className="lead">
-            <li><Link to="/register">Registration</Link></li>
-            <li><LoginLink /></li>
-            <li><Link to="/reviewSubmissionsPage">Submissions</Link></li>
-            <li><Link to="/mySubmissionsPage">My Submissions</Link></li>
-          </ol>
+          <h3>Welcome to the Harry Potter API!</h3>
+          <p>A GraphQL API that gives access to user generated Harry Potter data - written and verified by fans.  </p>
+          <p>Try this query: </p>
+          <pre><code> 
+            query {
+              store {
+                characterConnection(first: 3) {
+                  edges {
+                    node {
+                      name
+                      specialSkills
+                    }
+                  }
+                }
+              }
+            }
+          </code></pre>
+
         </div>
 
         <div className="container">
