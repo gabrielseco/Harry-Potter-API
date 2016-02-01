@@ -171,6 +171,7 @@ p {
   background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
   color: #FDB200;
   border: 3px solid #FDB200;
+  margin-bottom: 200px;
 }
 
 label {
