@@ -44,9 +44,9 @@
     "react-relay": "^0.6.1",
     "react-router": "^1.0.2",
     "react-stormpath": "^0.3.4",
-    "webpack": "^1.12.12"
+    "webpack": "^1.12.12",
+    "webpack-dev-middleware": "^1.5.1"
   },
   "devDependencies": {
-    "webpack-dev-middleware": "^1.5.1"
   }
 }

@@ -71,7 +71,7 @@ const PORT = process.env.PORT || 3000;
         if (err) {
           return console.error(err);
         }
-        console.log(`Server listening on port ${PORT}`);
+        console.log(`Listening on port ${PORT}`);
       });
     });
 
