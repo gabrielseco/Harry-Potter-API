@@ -211,8 +211,6 @@ label {
 }
 
 .submission {
-  /*padding-left: 150px;*/
-  /*padding-right: 150px;*/
   padding: 20px;
   background-color:black;
   background-image:
@@ -253,4 +251,5 @@ a:focus, a:hover {
 
 hr {
   border-top: 1px solid #FDB200;
+  margin-right: 30px;
 }
