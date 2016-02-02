@@ -1,27 +1,27 @@
 import React from 'react';
+import moment from 'moment';
+
+import Submission from './Submission';
 
 export default class Submissions extends React.Component {
   constructor(props) {
     super(props);
   }
   render() {
-    let submissions = this.props.characters.map ( (character, charIdx) => {
-      console.log(this.props.keys)
-      let keys =  this.props.keys.map( (key, idx) => {
-        // (character[key.name] === 'true') ? character[key.name] = 'yes' : character[key.name] = 'no'
-        return (
-          <li className="list-group-item" key={idx}>
-            <span className='col-sm-6 col-xs-12 charLabel'>{key.label}</span>
-            <span className='col-sm-6 col-xs-12'>{character[key.name]}</span>
-          </li>
-        )
-      }) 
-      return keys;     
+    let submissions = this.props.characters.map ( (character, idx) => {
+      return (
+        <div key={idx} className=' submission' >
+          <Submission character={character} keys={this.props.keys} />
+          <p className='col-sm-4 charLabel'>Is this data accurate?</p>
+          <button className='btn btn-responsive'>Yes</button>
+          <button className='btn btn-responsive'>No</button>
+        </div>
+      )
     })
     return (
-      <ul className='list-group'>
+      <div className='col-xs-12 row' id='allSubs'>
         {submissions}
-      </ul>
+      </div>
     )
   }
 }

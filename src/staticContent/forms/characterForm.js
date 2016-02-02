@@ -1,7 +1,7 @@
 var character = [
   { 
     name: 'firstName',
-    type: 'text', 
+    type: 'radio', 
     label: 'First Name',
     required: true,
     options: { 

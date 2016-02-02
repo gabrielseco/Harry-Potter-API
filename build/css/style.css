@@ -175,7 +175,7 @@ p {
 
 .list-group-item {
   padding-top: 25px;
-  padding-bottom:  20px
+  padding-bottom:  20px;
 }
 
 .newSubmissions {
@@ -210,9 +210,10 @@ label {
   margin-top: -10px;
 }
 
-.submissions {
-  padding-left: 150px;
-  padding-right: 150px;
+.submission {
+  /*padding-left: 150px;*/
+  /*padding-right: 150px;*/
+  padding: 20px;
   background-color:black;
   background-image:
   radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
@@ -224,9 +225,16 @@ label {
   color: #FDB200;
   border: 3px solid #FDB200;
 }
-}
-.submissions > .list-group-item > .charLabel {
+
+#allSubs .charLabel {
   text-align: right;
+  font-style: italic;
+  padding-right: 0;
+}
+
+.submission .btn {
+  margin-left: 10px;
+  width: 100px;
 }
 
 a, h4, li {
