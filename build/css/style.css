@@ -5,11 +5,16 @@ body {
   color: #FDB200;
 }
 
-@font-face {font-family: Parry Hotter; src: url('./fonts/ParryHotter.ttf'); }
+@font-face {
+  font-family: "MagicSchoolOne";
+  src: url('../fonts/MagicSchoolOne.ttf');
+  /*local('MagicSchoolOne')*/
+  /*format('truetype');*/
+}
 
 h1 {
-  font-size: 40px;
-  font-family: Parry Hotter;
+  font-size: 60px;
+  font-family: "MagicSchoolOne";
   text-align: center;
   color: #FDB200;
   padding-bottom: 20px;
