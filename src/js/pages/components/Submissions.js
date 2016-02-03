@@ -10,7 +10,7 @@ export default class Submissions extends React.Component {
   render() {
     let submissions = this.props.characters.map ( (character, idx) => {
       return (
-        <div key={idx} className=' submission' >
+        <div key={idx} className='jumbotron submission' >
           <Submission character={character} keys={this.props.keys} />
           <p className='col-sm-4 charLabel'>Is this data accurate?</p>
           <button className='btn btn-responsive'>Yes</button>

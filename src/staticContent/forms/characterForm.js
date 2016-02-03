@@ -1,45 +1,45 @@
 var character = [
-  { 
+  {
     name: 'firstName',
-    type: 'radio', 
+    type: 'text',
     label: 'First Name',
     required: true,
-    options: { 
-      maxLength: 20, 
+    options: {
+      maxLength: 20,
       placeholder: 'Harry'
     }
   },
-  { 
+  {
     name: 'lastName',
-    type: 'text', 
+    type: 'text',
     label: 'Last Name',
     required: true,
-    options: { 
-      maxLength: 20, 
+    options: {
+      maxLength: 20,
       placeholder: 'Potter'
     }
   },
-  { 
+  {
     name:'middleName',
-    type: 'text', 
+    type: 'text',
     label: 'Middle Name(s)',
     required: false,
-    options: { 
-      unkown: true, 
+    options: {
+      unkown: true,
       maxLength: 50,
       placeholder: 'James'
     }
   },
-  { 
+  {
     name: 'dob',
-    type: 'date', 
+    type: 'date',
     label: 'Date of Birth',
-    required: true, 
+    required: true,
     options: { unkown: true }
   },
-  { 
+  {
     name: 'dod',
-    type: 'date', 
+    type: 'date',
     label: 'Date of Death',
     required: false,
     options: {
@@ -54,7 +54,7 @@ var character = [
     required: true,
     options: ['male', 'female', 'unkown', 'not applicable']
   },
-  { 
+  {
     name: 'house',
     type: 'radio',
     label: 'Hogwarts House Affiliation',
@@ -94,7 +94,7 @@ var character = [
     type: 'text',
     label: 'Special Skills',
     required: true,
-    options: { 
+    options: {
       maxLength: 100,
       placeholder: "Defence Against the Dark Arts; Flying; Surviving Avada Kedavras"
     }

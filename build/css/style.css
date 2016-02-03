@@ -5,13 +5,14 @@ body {
   color: #FDB200;
 }
 
-/*@font-face {font-family: Parry Hotter; src: url('../fonts/ParryHotter.ttf'); }*/
+@font-face {font-family: Parry Hotter; src: url('./fonts/ParryHotter.ttf'); }
 
 h1 {
   font-size: 40px;
   font-family: Parry Hotter;
   text-align: center;
   color: #FDB200;
+  padding-bottom: 20px;
 }
 
 h3 {
@@ -33,6 +34,35 @@ h3 {
   radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
   background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
   background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+  color: #FDB200;
+}
+
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9  {
+  margin-right: auto;
+}
+
+.jumbotron {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.jumbotron p {
+  font-size: 14px;
+}
+
+.welcomeText {
+  font-size: 20px;
+}
+
+.footer, .push {
+  height: 50px;
+  width: 100%;
+  bottom: 0;
+  color: #FDB200;
+  padding-top: 30px;
+  text-align: center;
+}
+.fa-copyright {
   color: #FDB200;
 }
 
@@ -211,6 +241,7 @@ label {
 }
 
 .submission {
+  padding-top: 20px;
   padding: 20px;
   background-color:black;
   background-image:
@@ -233,7 +264,17 @@ label {
 .submission .btn {
   margin-left: 10px;
   width: 100px;
+  color: #140800;
+  background-color: #FDB200;
+  border: 2px solid #140800;
 }
+
+.submission .btn:hover {
+  color: #FDB200;
+  background-color: #B13F00;
+  border: 2px solid #FDB200;
+}
+
 
 a, h4, li {
   color: #FDB200;
@@ -246,10 +287,13 @@ a:hover {
 
 a:focus, a:hover {
   color: #FDB200;
-
 }
 
 hr {
   border-top: 1px solid #FDB200;
   margin-right: 30px;
+}
+
+.charLabel {
+  color: white;
 }

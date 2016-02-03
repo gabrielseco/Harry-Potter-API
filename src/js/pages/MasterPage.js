@@ -13,6 +13,13 @@ export default class MasterPage extends React.Component {
         <div className='MasterPage'>
           <Header />
           { this.props.children }
+          <div className="container">
+            <div className="push"></div>
+          </div>
+
+          <div className="footer">
+           <p>Copyright <i className="fa fa-copyright"></i> 2016</p>
+         </div>
         </div>
       </DocumentTitle>
     );
