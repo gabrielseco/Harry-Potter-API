@@ -7,7 +7,10 @@ body {
 
 @font-face {
   font-family: "MagicSchoolOne";
-  src: url('../fonts/MagicSchoolOne.ttf');
+  src: url('../fonts/MagicSchoolOne.ttf'),
+  url('MagicSchoolOne.woff2') format('woff2'),
+  url('MagicSchoolOne.eot?#iefix') format('embedded-opentype'),
+  url('webfont.ttf')  format('truetype');
   /*local('MagicSchoolOne')*/
   /*format('truetype');*/
 }
