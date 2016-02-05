@@ -6,8 +6,8 @@ import { MongoClient } from 'mongodb';
 import { introspectionQuery } from 'graphql/utilities';
 import morgan from 'morgan';
 import path from 'path';
-import webpack from 'webpack';
-import config from './webpack.config';
+// import webpack from 'webpack';
+// import config from './webpack.config';
 import stormpath from 'express-stormpath';
 
 import Schema from './src/data/schema';
@@ -15,7 +15,9 @@ import HPSchema from './src/data/hp-database/schema';
 import db from './db';
 
 const server = express();
-const compiler = webpack(config);
+// const compiler = webpack(config);
+server.use(morgan('dev'));
+server.use(express.static('build'));
 
 const PORT = process.env.PORT || 3000;
 
@@ -25,9 +27,7 @@ const PORT = process.env.PORT || 3000;
     let hpSchema = HPSchema(db);
     let schema = Schema(db);
 
-    server.use(morgan('dev'));
-
-    // publicly available HP GraphQL IDE
+    // publicly available HP graphiql IDE
     let json = await graphql(schema, introspectionQuery);
     fs.writeFile('./src/data/schema.json', JSON.stringify(json, null, 2), err => {
       if (err) throw err.stack;
@@ -38,7 +38,7 @@ const PORT = process.env.PORT || 3000;
       graphiql: true
     }));
 
-    // private GraphQL IDE for app
+    // private graphiql for app
     server.use('/privateGraphql', GraphQLHTTP({
       schema: schema,
       graphiql: true
@@ -49,10 +49,10 @@ const PORT = process.env.PORT || 3000;
       console.log('HP  json schema created')
     });
     
-    server.use(require('webpack-dev-middleware')(compiler, {
-      noInfo: true,
-      publicPath: config.output.publicPath
-    }));
+    // server.use(require('webpack-dev-middleware')(compiler, {
+    //   noInfo: true,
+    //   publicPath: config.output.publicPath
+    // }));
 
     stormpath.init(server, {
       website: true

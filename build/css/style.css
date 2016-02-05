@@ -11,8 +11,6 @@ body {
   url('MagicSchoolOne.woff2') format('woff2'),
   url('MagicSchoolOne.eot?#iefix') format('embedded-opentype'),
   url('webfont.ttf')  format('truetype');
-  /*local('MagicSchoolOne')*/
-  /*format('truetype');*/
 }
 
 h1 {
@@ -34,14 +32,6 @@ h3 {
   margin: 0 auto;
   margin-bottom: 50px;
   padding: 35px;
-  background-color:black;
-  background-image:
-  radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
-  radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
-  radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
-  radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
-  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
-  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
   color: #FDB200;
 }
 
@@ -70,6 +60,7 @@ h3 {
   padding-top: 30px;
   text-align: center;
 }
+
 .fa-copyright {
   color: #FDB200;
 }
@@ -80,18 +71,6 @@ h3 {
   border-color: #140800;
 }
 
-.bottomInfo {
-  background-color:black;
-  background-image:
-  radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
-  radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
-  radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
-  radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
-  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
-  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
-  color: #FDB200;
-  border: 3px solid #FDB200;
-}
 
 @media (min-width: 1200px)
 .col-lg-4 {
@@ -122,8 +101,6 @@ h3 {
     padding-left: 35px;
   }
 
-
-
 p {
   margin: 0 0 10px;
 }
@@ -152,12 +129,12 @@ p {
 
 .navbar-default  {
   background: repeating-linear-gradient(
-  45deg,
-  #FDB200,
-  #FDB200 10px,
-  #300000 10px,
-  #300000 20px
-);
+    45deg,
+    #FDB200,
+    #FDB200 10px,
+    #300000 10px,
+    #300000 20px
+  );
   border: 2px solid #FDB200;
 
 }
@@ -182,22 +159,13 @@ p {
   border: 2px solid #FDB200;
 }
 
-
-.jumbotron, .newSubmissions {
-  background-color:black;
-  background-image:
-  radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
-  radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
-  radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
-  radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
-  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
-  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+.jumbotron, .newSubmissions, .bottomInfo, .submission, .newSubmissions .reviewSubmissions {
   color: #FDB200;
   border: 3px solid #FDB200;
 }
 
-.reviewSubmissions {
-  background-color:black;
+.login, .jumbotron, .newSubmissions, .reviewSubmissions, .submission, .bottomInfo, .register, #graphQL {
+background-color:black;
   background-image:
   radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
   radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
@@ -205,8 +173,9 @@ p {
   radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
   background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
   background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
-  color: #FDB200;
-  border: 3px solid #FDB200;
+}
+
+.reviewSubmissions {
   padding-left: 150px;
   padding-right: 150px;
 }
@@ -219,16 +188,6 @@ p {
 .newSubmissions {
   padding-left: 150px;
   padding-right: 150px;
-  background-color:black;
-  background-image:
-  radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
-  radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
-  radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
-  radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
-  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
-  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
-  color: #FDB200;
-  border: 3px solid #FDB200;
   margin-bottom: 200px;
 }
 
@@ -251,16 +210,6 @@ label {
 .submission {
   padding-top: 20px;
   padding: 20px;
-  background-color:black;
-  background-image:
-  radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
-  radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
-  radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
-  radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
-  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
-  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
-  color: #FDB200;
-  border: 3px solid #FDB200;
 }
 
 #allSubs .charLabel {
@@ -300,6 +249,15 @@ a:focus, a:hover {
 hr {
   border-top: 1px solid #FDB200;
   margin-right: 30px;
+}
+
+.loginHeader {
+  margin-right: 2px;
+}
+
+.registerHeader {
+  margin-right: -14px;
+  margin-left: -14px;
 }
 
 .charLabel {
