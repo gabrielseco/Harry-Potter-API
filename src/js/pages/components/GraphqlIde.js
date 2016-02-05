@@ -1,9 +1,11 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
 import { UserComponent } from 'react-stormpath';
+import path from 'path';
 
 export default class GraphQL extends UserComponent {
   render() {
+    let src = path.join(__dirname, '/graphql')
     return (
       <DocumentTitle title={`GraphQL`}>
         <div className="container">
@@ -13,7 +15,7 @@ export default class GraphQL extends UserComponent {
               <hr />
             </div>
           </div>
-            <iframe className="col-md-8 api" id="graphQL" src="http://localhost:3000/graphql" width="100%" height="500" />
+            <iframe className="col-md-8 api" id="graphQL" src={src} width="100%" height="500" />
         </div>
       </DocumentTitle>
     );
