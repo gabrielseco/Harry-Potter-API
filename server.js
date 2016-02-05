@@ -59,7 +59,7 @@ const PORT = process.env.PORT || 3000;
     });
 
     server.on('stormpath.ready', function () {
-      server.listen(PORT, 'localhost', function (err) {
+      server.listen(PORT, function (err) {
         if (err) {
           return console.error(err);
         }
