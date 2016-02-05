@@ -6,8 +6,6 @@ import { MongoClient } from 'mongodb';
 import { introspectionQuery } from 'graphql/utilities';
 import morgan from 'morgan';
 import path from 'path';
-// import webpack from 'webpack';
-// import config from './webpack.config';
 import stormpath from 'express-stormpath';
 
 import Schema from './src/data/schema';
@@ -15,7 +13,6 @@ import HPSchema from './src/data/hp-database/schema';
 import db from './db';
 
 const server = express();
-// const compiler = webpack(config);
 server.use(morgan('dev'));
 server.use(express.static('build'));
 
@@ -48,11 +45,6 @@ const PORT = process.env.PORT || 3000;
       if (err) throw err.stack;
       console.log('HP  json schema created')
     });
-    
-    // server.use(require('webpack-dev-middleware')(compiler, {
-    //   noInfo: true,
-    //   publicPath: config.output.publicPath
-    // }));
 
     stormpath.init(server, {
       website: true
